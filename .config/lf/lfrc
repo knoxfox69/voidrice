@@ -103,5 +103,7 @@ map <c-e> down
 map <c-y> up
 map V push :!nvim<space>
 
+map . set hidden!
+
 # Source Bookmarks
 source "~/.config/lf/shortcutrc"
