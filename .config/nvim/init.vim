@@ -147,3 +147,11 @@ function! ToggleHiddenAll()
     endif
 endfunction
 nnoremap <leader>h :call ToggleHiddenAll()<CR>
+
+" Automatically compile java
+
+autocmd Filetype java set makeprg=/usr/lib/jvm/java-16-openjdk/bin/javac\ %
+set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+map <F9> :make<Return>:copen<Return>
+map <F10> :cprevious<Return>
+map <F11> :cnext<Return>
