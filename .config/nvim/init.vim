@@ -155,5 +155,3 @@ set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 map <F9> :make<Return>:copen<Return>
 map <F10> :cprevious<Return>
 map <F11> :cnext<Return>
-
-autocmd BufWritePost *.tex silent! execute "!pdflatex % >/dev/null 2>&1" | redraw!
