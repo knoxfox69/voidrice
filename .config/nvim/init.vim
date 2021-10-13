@@ -156,5 +156,6 @@ map <F9> :make<Return>:copen<Return>
 map <F10> :cprevious<Return>
 map <F11> :cnext<Return>
 
-" Automatically compile LaTeX documents
+" Autocompile .tex
+
 autocmd BufWritePost *.tex silent! execute "!pdflatex % >/dev/null 2>&1" | redraw!
