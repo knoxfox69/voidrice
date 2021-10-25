@@ -11,3 +11,5 @@ killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
 xmodmap -e 'keycode 135 = Super_R'
 # Turn off the caps lock if on since there is no longer a key for it.
 xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
+# Switch the keyboard layout between US and Latin American when pressing "shift + alt"
+setxkbmap -layout us,latam -option grp:alt_shift_toggle &
