@@ -1,6 +1,6 @@
 #!/bin/bash
-TERM="kitty --single-instance"          #Tag 1
-BROWSER=firefox     #Tag 2
+TERM="st"          #Tag 1
+BROWSER=microsoft-edge-beta     #Tag 2
 DOC=libreoffice     #Tag 3
 FILE=thunar        #Tag 4
 PLAYER=mpv          #Tag 5
