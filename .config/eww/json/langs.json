@@ -6,9 +6,9 @@
         "name_abbr": "ENG"
     },
     {
-        "name": "Vietnamese",
-        "name_method": "Vietnamese Telex (Bamboo Engine)",
-        "name_ibus": "Bamboo::Us",
-        "name_abbr": "VIE"
+        "name": "Spanish (Mexico)",
+        "name_method": "MX",
+        "name_ibus": "xkb:mx:es",
+        "name_abbr": "LAA"
     }
 ]
