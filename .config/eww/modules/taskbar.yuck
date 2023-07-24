@@ -1,30 +1,40 @@
-(defwidget taskbar []
-  (box
-    :orientation "h"
-    :space-evenly false
-    :onscroll "echo {} | sed -e \"s/up/-1/g\" -e \"s/down/+1/g\" | xargs hyprctl dispatch workspace"
-    (for app in tasks
-      (overlay
-        (eventbox
-          :class "taskbar-button-only"
-          :onclick "${app.count > 0 ? ('hyprctl dispatch workspace ' + app.workspace[0] + ' &') : (app.exec)}"
-          ; :tooltip "${app.class}"
-          ; :onclick "hyprctl dispatch workspace ${app.workspace[0]} && hyprctl dispatch focusdow address:${app.address[0]} &"
-          (box
-            :class "taskbar-button-pad"
-            (box
-              :class "taskbaricon"
-              :style "
-              background-image: url('${app.icon}');
-              ${app.class == awin.class ? 'background-color: rgba(108, 112, 134, 0.4); border: 1px solid rgba(108, 112, 134, 0.15); border-top: 1px solid rgba(108, 112, 134, 0.15);' : ''}
-              "
+(defwidget taskbar_widget []
+  (overlay
+    (box
+      :class "bar-pad"
+      :width 420
+      :height 60
+      (box
+        :space-evenly false :spacing 5
+        :class "bar-bg bar-bg-pad"
+      )
+    )
+    (scroll
+      :hscroll true
+      :vscroll false
+      :width 395
+      (box
+        :halign "center"
+        :space-evenly false
+        (for app in tasks
+          (eventbox
+            :onclick "${app.count > 0 ? ('hyprctl dispatch workspace ' + app.workspace[0] + ' &') : (app.exec)}"
+            (overlay
+              (box
+                :class "bar-tasks-app-pad"
+                (image
+                  :class "bar-tasks-app-icon${app.class == awin.class ? '-active' : ''}"
+                  :path {app.icon}
+                  :image-width 25 :image-height 25
+                )
+              )
+              (box
+                :class "bar-tasks-app-highlight-${app.class == awin.class ? 'true' : 'false'}"
+              )
             )
           )
         )
-        (box :class "taskbar-indicator-${app.class == awin.class ? 'true' : (app.count > 0 ? 'false' : 'none')}")
       )
     )
-    ; Dummy keep alive
-    (revealer :transition "slideright" :reveal false (label :text {awin.class}))
   )
 )
