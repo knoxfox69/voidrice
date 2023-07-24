@@ -1,5 +1,5 @@
 #!/bin/bash
-TERM=kitty          #Tag 1
+TERM=st          #Tag 1
 BROWSER=brave       #Tag 2
 DOC=libreoffice     #Tag 3
 FILE=dolphin        #Tag 4
@@ -13,7 +13,7 @@ DEV=neovide         #Tag 9
 TAG=$(hyprctl monitors | grep -B 4 "focused: yes" | awk 'NR==2 {print $1}' RS='(' FS=')')
 
 #Executes application based on number of focused tag
-case "$TAG" in 
+case "$TAG" in
   1) $TERM &> /dev/null ;;
   2) $BROWSER &> /dev/null ;;
   3) $DOC &> /dev/null ;;
