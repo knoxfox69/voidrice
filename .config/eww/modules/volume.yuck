@@ -1,13 +1,33 @@
 (defwidget volume-module []
   (box
-    :class "module icon"
+    :class "vol-menu"
     (eventbox
-      ; scroll over the icon to change volume
-      ; low increment so that scrolling with a touchpad doesn't shatter your eardrums
-      :onscroll "echo {} | sed -e 's/up/-/g' -e 's/down/+/g' | xargs -I% wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.005%"
-      :onclick "pavucontrol &" ; open pavucontrol on click
-      :onrightclick "scripts/volume mute SINK" ; toggle mute on right click
-      (label
-        :class "vol-icon"
-        :tooltip "volume ${volume.percent}%"
-        :text {volume.icon}))))
+      ; :class "vol-menu"
+      :onscroll "echo {} | sed -e 's/down/-/g' -e 's/up/+/g' | xargs -I% wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.03%"
+      :onrightclick "pavucontrol"
+      :onclick "scripts/volume mute SINK"
+      (box
+        (label
+          ; :class "vol-menu"
+          :tooltip "volume ${volume.percent}%"
+          :style "font-family: 'Material Symbols Rounded';"
+          :text "${volume.icon}"
+          :valign "start"
+        )
+        (label :valign "start" :text "${volume.percent}%")
+      )
+    )
+    ; (volmenu)
+  )
+)
+
+(defwidget volmenu[]
+  (eventbox
+    :class "vol-menu"
+    :onscroll "echo {} | sed -e 's/down/-/g' -e 's/up/+/g' | xargs -I% wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.03%"
+    :onrightclick "pavucontrol"
+    :onclick "scripts/volume mute SINK"
+    :valign "start"
+    (label :class "vol-menu" :text "${volume.percent}%")
+  )
+)

@@ -1,47 +1,69 @@
-; shared OSD code for volume/brightnes
-(defwidget osd-part [icon value class]
+(defwidget osdwidget []
   (box
-    :class "osd-part osd-${class}"
-    :orientation "v"
+    :class "osd-window"
+    :orientation "h"
     :space-evenly false
-    (scale
-      :flipped true
-      :orientation "v"
-      :value value)
-    (label
-      :class "text"
-      :text icon)))
-
-; osd window widget
-(defwidget osd []
-  (box
-    :class "osd-container"
-    :space-evenly false
-    ; use revealers for both volume and brightness
     (revealer
-      :reveal {osd-brightness}
+      :reveal {osd_vol}
       :transition "slideright"
-      (osd-part
-        :class "brightness"
-        :icon {brightness.icon}
-        :value {brightness.percent}))
+      :duration "80ms"
+      (centerbox
+        :class "osd-var"
+        :orientation "h"
+        :space-evenly false
+        (circular-progress
+          :value {volume.percent}
+          :class "osd-circle"
+          :thickness 4
+          :start-at 75
+          :halign "start"
+          (button
+            :class "inside-circle"
+            (label :xalign "0.5" :yalign "0.5" :halign "center" :valign "center" :class "osd-incircle" :text "${volume.icon}")
+          )
+        )
+        (box)
+        (label :xalign 0.5 :halign "end" :class "osd-text" :text "${volume.percent}")
+      )
+    )
     (revealer
-      :reveal {osd-volume}
+      :reveal {osd_bright}
       :transition "slideright"
-      (osd-part
-        :class "volume"
-        :icon {volume.icon}
-        :value {volume.percent})))
+      :duration "80ms"
+      (centerbox
+        :class "osd-var"
+        :orientation "h"
+        :space-evenly false
+        (circular-progress
+          :value {round(brightness.level, 0)}
+          :class "osd-circle"
+          :thickness 4
+          :start-at 75
+          :halign "start"
+          (button
+            :class "inside-circle"
+            (label :xalign "0.5" :yalign "0.5" :halign "center" :valign "center" :class "osd-incircle-bright" :text "${brightness.icon}")
+          )
+        )
+        (box)
+        (label :xalign 0.5 :class "osd-text" :text {round(brightness.level, 0)})
+      )
+    )
+  )
 )
 
 (defwindow osd
-  :stacking "fg"
-  :focusable false
+  :stacking "overlay"
+  :wm-ignore true
   :monitor 0
+  :namespace "osd"
   :geometry (geometry
-    :x "1%"
-    :y "0%"
-    :width "0%"
-    :height "0%"
-    :anchor "center left")
-  (osd))
+    :y "69px"
+    :width "100px"
+    :height "53px"
+    :anchor "top center"
+  )
+  :stacking "fg"
+  :exclusive false
+  (osdwidget)
+)

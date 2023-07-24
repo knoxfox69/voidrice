@@ -1,33 +1,59 @@
 #!/usr/bin/env bash
-
-# shellcheck source=/dev/null
-source "$(dirname "$0")"/utils
+cd ~/.config/eww 
 
 icons=("" "" "")
+XDG_CACHE_HOME="$HOME/.cache"
 date="$XDG_CACHE_HOME/eww/osd_brightness.date"
+lock=0
 
-gen_output() {
-  percent="$(brillo)"
-  icon="${icons[$(awk -v n="$percent" 'BEGIN{print int(n/34)}')]}"
+showhide() {
+  # get dates
+  rundate=$(cat "$date")
+  currentdate=$(date +%s)
 
-  echo '{"percent": "'"$percent"'", "icon": "'"$icon"'"}'
+  # handle showing
+  if [ "$rundate" = "$currentdate" ] && [ "$lock" -eq 0 ]; then
+    scripts/toggle-osd-bright.sh --open
+    lock=1
+  elif [ $((currentdate - rundate)) -ge 2 ] && [ "$lock" -eq 1 ]; then
+    scripts/toggle-osd-bright.sh --close > /dev/null
+    lock=0
+  fi
+}
+
+osd() {
+  if [ ! -f "$date" ]; then
+    mkdir -p "$XDG_CACHE_HOME/eww"
+  fi
+  date +%s > "$date"
+  # showhide
+}
+
+osd_handler() {
+  lock=0
+  rundate=0
+  if [ ! -f "$date" ]; then
+    mkdir -p "$XDG_CACHE_HOME/eww"
+    echo 0 > "$date"
+  fi
+
+  while true; do
+    showhide
+    sleep 0.1
+  done
 }
 
 if [ "$1" = "osd" ]; then
-  osd "$date"
+  osd
 else
   # initial
-  last_time=$(get_time_ms)
-  gen_output
-  osd_handler "osd-brightness" &
+  icon=${icons[$(awk -v n="$(light)" 'BEGIN{print int(n/34)}')]}
+  echo '{ "level": '"$(light)"', "icon": "'"$icon"'" }'
 
+  osd_handler &
   udevadm monitor | rg --line-buffered "backlight" | while read -r _; do
-    current_time=$(get_time_ms)
-    delta=$((current_time - last_time))
-    if [[ $delta -gt 50 ]]; then
-      gen_output
-      # reset debounce timer
-      last_time=$(get_time_ms)
-    fi
+    icon="${icons[$(awk -v n="$(light)" 'BEGIN{print int(n/34)}')]}"
+
+    echo '{ "level": '"$(light)"', "icon": "'"$icon"'" }'
   done
 fi

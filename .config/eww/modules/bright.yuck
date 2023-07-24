@@ -2,9 +2,14 @@
   (box
     :class "module"
     (eventbox
-      ; scroll to change the brightness level
-      :onscroll "echo {} | sed -e 's/up/-U 1/g' -e 's/down/-A 1/g' | xargs brillo -S"
+      :class "bright-icon"
+      :onscroll "echo $(echo {} | sed -e 's/down/-U 5/g' -e 's/up/-A 5/g' | xargs light) && scripts/bright osd"
       (label
+        :valign "start"
         :text {brightness.icon}
         :class "bright-icon icon"
-        :tooltip "brightness ${round(brightness.percent, 0)}%"))))
+        :tooltip "brightness ${round(brightness.level, 0)}%"
+      )
+    )
+  )
+)

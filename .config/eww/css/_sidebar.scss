@@ -1,21 +1,27 @@
-/* system menu */
-.system-menu-box { @include window; }
+.system-menu-box {
+  @include window;
+  background-color: $colorbarbg;
+  border: 3px solid $border;
+  // color: $colortext;
+}
 
-/* between net/bt and their arrows */
 .separator {
   font-size: 1rem;
 }
 
-/* date & time */
 .top-row {
   margin: 1rem 1.5rem 0;
 
-  .time { font-size: 2rem; }
+  .time {
+    font-size: 2rem;
+  }
 
   .date-box {
     margin: 0 1rem;
 
-    label { font-size: 1.1rem; }
+    label {
+      font-size: 1.1rem;
+    }
 
     .date {
       background: unset;
@@ -25,111 +31,141 @@
   }
 }
 
-/* wifi/bt/airplane button boxes */
 .system-row {
-  margin: .5rem .7rem;
+  font-family: Torus;
+  // margin: .5rem .7rem;
+  margin-top: 27px;
 
-  /* the airplane icon is not properly spaced */
   .airplane-box button {
     padding: 1rem 3rem;
   }
 
+  .power-box button {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
   label {
     font-size: 1rem;
-    margin: 0 .1rem;
   }
 }
 
-/* wifi/bt/airplane buttons */
 .element {
-  @include rounding;
-  background-color: $bg1;
+  font-family: 'Torus';
+  border-top-left-radius: 31px;
+  border-top-right-radius: 31px;
+  border-bottom-left-radius: 31px;
+  border-bottom-right-radius: 10px;
+  background-color: $secondaryContainer;
+  color: $onSecondaryContainer;
   margin: .3rem;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.5);
 
   button {
-    @include rounding;
+    border-top-left-radius: 31px;
+    border-top-right-radius: 31px;
+    border-bottom-left-radius: 31px;
+    border-bottom-right-radius: 10px;
     padding: 1rem;
 
     label {
       font-size: 1.5rem;
     }
 
-    /* set wifi/bt colors and dim buttons when hovering */
     &:hover {
-      background-color: rgba(0, 0, 0, .1);
+      background: $overlay0;
     }
   }
 }
 
-/* volume & brightness sliders */
 .sliders {
+  font-family: 'Torus', 'Material Symbols Rounded';
   @include rounding;
-  background-color: $bg1;
+  background-color: $surface0;
   margin: .5rem 1rem;
   padding: .6rem 1rem;
 
   scale {
     margin-right: -1rem;
-    min-width: 21.5rem;
-
-    trough { margin-right: 0; }
+    min-width: 25.8rem;
   }
 
-  box { margin: .2rem 0; }
-  label { font-size: 1.2rem; }
+  scale trough {
+    background-color: $bg1;
+    border-radius: 24px;
+    margin: 0 1rem;
+    min-height: 10px;
+    min-width: 70px;
+  }
+
+  box {
+    margin: .2rem 0;
+  }
+
+  label {
+    font-size: 1.2rem;
+  }
 }
 
-.volume-slider-box,
-.brightness-slider-box {
-  trough { background-color: $base; }
+.sliderbg {
+  background-color: transparent;
+  padding: 0px;
 }
 
 .volume-bar highlight {
+  font-family: SF Mono Nerd Font;
   @include rounding;
-  background-image: linear-gradient(to right, $teal, $sky);
+  background: $color6;
+  // background-image: linear-gradient(to right, $tokyocyan 30%, $tokyopurple 100%);
 }
 
-.brightness-slider-box scale highlight {
+.volume-slider-box scale highlight {
   @include rounding;
-  background-image: linear-gradient(to right, $yellow, $peach);
+  background: $color6;
+  // background-image: linear-gradient(to right, $tokyocyan 30%, $tokyopurple 100%);
+  // border: 2px solid;
+  min-height: 0.9rem;
 }
 
-/* battery & power button */
+// .volume-slider-box scale {
+//   @include rounding;
+//   background-color: #1A1B26;
+//   border: 2px solid;
+// }
+
 .bottom-row {
   margin: .5rem 1rem;
 
   .battery-icon {
-    color: $green;
     font-size: 2rem;
-
-    .low { color: $red; }
   }
 
-  .battery-rate { color: $mauve; }
+  .battery-wattage {
+    color: $color7;
+  }
 
   .battery-status {
-    color: $subtext0;
+    color: $colortext;
     margin: 0 .5rem;
   }
 
   button {
-    background-color: $bg1;
+    background-color: $surface0;
     border-radius: 50%;
     margin-bottom: .1rem;
     padding: 0 .5rem;
 
-    label { font-size: 1.5rem; }
-    &:hover { background-color: $bg1; }
+    label {
+      font-size: 1.5rem;
+    }
+
+    &:hover {
+      background: $overlay0;
+    }
   }
 }
 
-
-.bt-connected {
-  background-color: $blue;
-  color: $crust;
-}
-
-.net-connected {
-  background-color: $mauve;
-  color: $crust;
+.power-button {
+  min-height: 2.5rem;
+  // min-width: 2.5rem;
 }
