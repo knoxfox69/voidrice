@@ -4,7 +4,7 @@
 # choose the kind of screenshot to take, including copying the image or even
 # highlighting an area to copy. scrotcucks on suicidewatch right now.
 
-case "$(printf "a selected area\\ncfull screen\\n" | dmenu -l 2 -i -p "Screenshot which area?")" in
-	"a selected area") grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/$(date).png" ;;
-	"full screen") maim pic-full-"$(date '+%y%m%d-%H%M-%S').png" ;;
+case "$(printf "a selected area\\nfull screen\\n" | rofi -dmenu -l 2 -i -p "Screenshot which area?")" in
+	"a selected area") grim -g "$(slurp)" pic-select-"$(date '+%y%m%d-%H%M-%S').png" ;;
+	"full screen") grim pic-full-"$(date '+%y%m%d-%H%M-%S').png" ;;
 esac
