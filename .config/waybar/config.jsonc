@@ -11,12 +11,12 @@
     "modules-right": ["tray", "custom/randwall", "network", "pulseaudio", "clock"],
     // Modules configuration
 	"clock": {
-		"format": " {:%H:%M}",
+		"format": " {:%I:%M %p}",
 		"tooltip": "true",
         	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         	"format-alt": " {:%d/%m}"
 	},
-	
+
 
 	"wlr/workspaces": {
         "active-only": false,
@@ -100,7 +100,7 @@
     "interval": 5,
     "path": "/mnt/Datos"
   },
-	
+
 	"network": {
         	"format-wifi": "󰤨",
         	"format-ethernet": " {ifname}: Aesthetic",
@@ -145,8 +145,8 @@
     "format": "󰈸",
     "on-click": "bash $HOME/.config/rofi/launcher.sh",
 //    "on-click": "wofi --show drun -I -a -n -W 500 -H 376 -s ~/.config/wofi/themes/gruvbox.css",
-    "on-click-right": "bash $HOME/.config/rofi/run.sh"  
-//    "on-click-right": "wofi --show run -I -a -n -W 500 -H 376 -s ~/.config/wofi/themes/gruvbox.css"  
+    "on-click-right": "bash $HOME/.config/rofi/run.sh"
+//    "on-click-right": "wofi --show run -I -a -n -W 500 -H 376 -s ~/.config/wofi/themes/gruvbox.css"
   },
 
   "custom/wf-recorder": {
