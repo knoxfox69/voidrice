@@ -13,7 +13,7 @@ unsetopt PROMPT_SP
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="foot"
-export BROWSER="microsoft-edge-beta"
+export BROWSER="microsoft-edge-stable"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
