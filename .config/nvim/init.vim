@@ -159,3 +159,6 @@ map <F11> :cnext<Return>
 " Autocompile .tex
 
 autocmd BufWritePost *.tex silent! execute "!pdflatex % >/dev/null 2>&1" | redraw!
+
+" Set clipboard to system
+set clipboard+=unnamedplus
