@@ -36,8 +36,8 @@ case "$current_session" in
 	;;
 esac
 
-# Sleep for 15 minutes before calling the script again
-sleep 15m
+# Sleep for 10 minutes before calling the script again
+sleep 10m
 
 # Call the script again to set wallpaper
 exec "$0"
