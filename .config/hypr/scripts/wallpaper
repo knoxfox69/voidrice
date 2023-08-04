@@ -35,3 +35,9 @@ case "$current_session" in
 	set_wallpaper_other
 	;;
 esac
+
+# Sleep for 15 minutes before calling the script again
+sleep 15m
+
+# Call the script again to set wallpaper
+exec "$0"
