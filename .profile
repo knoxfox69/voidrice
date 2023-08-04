@@ -1,0 +1,1 @@
+/home/knox/.config/shell/profile
