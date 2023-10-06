@@ -19,11 +19,14 @@ down() {
     pactl set-sink-volume @DEFAULT_SINK@ 0%
   fi
 }
-
-
+mute() {
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+}
 
 if [[ "$1" == "--up" ]];then
   up
 elif [[ "$1" == "--down" ]];then
   down
+elif [[ "$1" == "--mute" ]]; then
+  mute
 fi
