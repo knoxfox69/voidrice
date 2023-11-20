@@ -1,56 +1,38 @@
 * {
     border: none;
-    border-radius: 0px;
-    /*font-family: VictorMono, Iosevka Nerd Font, Noto Sans CJK;*/
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
     font-family: Iosevka, FontAwesome, Noto Sans CJK;
     font-size: 14px;
     font-style: normal;
-    min-height: 0;
 }
 
-window#waybar {
-    background: rgba(30, 30, 46, 0.5);
-    border-bottom: 1px solid #282828;
-    color: #f4d9e1
+#waybar {
+  background: #292828;
+  color: #ffffff;
 }
 
-#workspaces {
-	background: #282828;
-	margin: 5px 5px 5px 5px;
-  padding: 0px 5px 0px 5px;
-	border-radius: 16px;
-  border: solid 0px #f4d9e1;
-  font-weight: normal;
-  font-style: normal;
-}
 #workspaces button {
-    padding: 0px 5px;
-    border-radius: 16px;
-    color: #928374;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #ffffff;
+}
+
+#workspaces button:hover,
+#workspaces button:active {
+  background-color: #292828;
+  color: #ffffff;
 }
 
 #workspaces button.active {
-    color: #f4d9e1;
-    background-color: transparent;
-    border-radius: 16px;
-}
-
-#workspaces button:hover {
-	background-color: #E6B9C6;
-	color: black;
-	border-radius: 16px;
+  background-color: #383737;
 }
 
 #custom-date, #clock, #battery, #pulseaudio, #network, #custom-randwall, #custom-launcher {
 	background: transparent;
-	padding: 5px 5px 5px 5px;
-	margin: 5px 5px 5px 5px;
-  border-radius: 8px;
-  border: solid 0px #f4d9e1;
-}
-
-#custom-date {
-	color: #D3869B;
+	padding: 0px 5px 0px 5px;
+	margin: 0px 5px 0px 5px;
 }
 
 #custom-power {
@@ -68,17 +50,14 @@ window#waybar {
     background: #282828;
     margin: 5px 5px 5px 5px;
     border-radius: 16px;
-    padding: 0px 5px;
     /*border-right: solid 1px #282738;*/
 }
 
 #clock {
     color: #E6B9C6;
-    background-color: #282828;
-    border-radius: 0px 0px 0px 24px;
-    padding-left: 13px;
-    padding-right: 15px;
+    background-color: #3C3C3C;
     margin-right: 0px;
+    padding-left: 5px;
     margin-left: 10px;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -88,7 +67,8 @@ window#waybar {
 
 
 #battery {
-    color: #9ece6a;
+  margin-left: 7px;
+  margin-right: 3px;
 }
 
 #battery.charging {
@@ -138,16 +118,15 @@ window#waybar {
 
 #custom-launcher {
     color: #e5809e;
-    background-color: #282828;
-    border-radius: 0px 24px 0px 0px;
+    background-color: #3C3C3C;
     margin: 0px 0px 0px 0px;
-    padding: 0 20px 0 13px;
+    padding: 0 20px 0 10px;
     /*border-right: solid 1px #282738;*/
     font-size: 20px;
 }
 
 #custom-launcher button:hover {
-    background-color: #FB4934;
+    background-color: #303030;
     color: transparent;
     border-radius: 8px;
     margin-right: -5px;
@@ -183,64 +162,11 @@ window#waybar {
 }
 
 #window {
-    background: #282828;
+    background: #303030;
     padding-left: 15px;
     padding-right: 15px;
-    border-radius: 16px;
-    /*border-left: solid 1px #282738;*/
-    /*border-right: solid 1px #282738;*/
     margin-top: 5px;
     margin-bottom: 5px;
     font-weight: normal;
     font-style: normal;
-}
-
-#custom-wf-recorder {
-    padding: 0 20px;
-    color: #e5809e;
-    background-color: #1E1E2E;
-}
-
-#cpu {
-    background-color: #282828;
-    /*color: #FABD2D;*/
-    border-radius: 16px;
-    margin: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 0px 10px 0px 10px;
-    font-weight: bold;
-}
-
-#memory {
-    background-color: #282828;
-    /*color: #83A598;*/
-    border-radius: 16px;
-    margin: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 0px 10px 0px 10px;
-    font-weight: bold;
-}
-
-#disk {
-    background-color: #282828;
-    /*color: #8EC07C;*/
-    border-radius: 16px;
-    margin: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 0px 10px 0px 10px;
-    font-weight: bold;
-}
-
-#custom-hyprpicker {
-    background-color: #282828;
-    /*color: #8EC07C;*/
-    border-radius: 16px;
-    margin: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 0px 11px 0px 9px;
-    font-weight: bold;
 }
