@@ -118,7 +118,7 @@
 
 #custom-launcher {
     color: #e5809e;
-    background-color: #324360;
+    background-color: #664b53;
     margin: 0px 0px 0px 0px;
     padding: 0 20px 0 10px;
     /*border-right: solid 1px #282738;*/
@@ -133,30 +133,14 @@
     margin-left: 10px;
 }
 
-#custom-playerctl {
-	background: #282828;
-	padding-left: 15px;
-  padding-right: 14px;
-	border-radius: 16px;
-  /*border-left: solid 1px #282738;*/
-  /*border-right: solid 1px #282738;*/
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 0px;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 16px;
-}
-
 #custom-playerlabel {
-    background: transparent;
+    background: #664b53;
     padding-left: 10px;
     padding-right: 15px;
-    border-radius: 16px;
     /*border-left: solid 1px #282738;*/
     /*border-right: solid 1px #282738;*/
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     font-weight: normal;
     font-style: normal;
 }
