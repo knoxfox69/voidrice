@@ -29,9 +29,9 @@
         	"format-wifi": "",
         	"format-ethernet": " {ifname}",
         	"format-linked": " {ifname}",
-        	"format-disconnected": "󰤭",
+        	"format-disconnected": "No connection",
           "tooltip-format": "{essid}",
-          "on-click-right": "nm-connection-editor"
+          "on-click-left": "foot -e nmtui"
 	},
 
 	"tray": {
