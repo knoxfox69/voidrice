@@ -1,0 +1,9 @@
+##!/usr/bin/env bash
+
+## Assuming yay is run by user with UID 1001
+admin="$(id -nu 1001)"
+cachedir="/home/$admin/.cache/yay"
+
+## Remove yay cache for foreign packages that are not installed anymore
+sudo pacman -Scc --noconfirm
+sudo -u knox yay -Scc --noconfirm
