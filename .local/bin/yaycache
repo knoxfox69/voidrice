@@ -1,3 +1,2 @@
 ## Remove yay cache for foreign packages that are not installed anymore
 sudo paccache -rk 0
-sudo -u knox rm -rf /home/knox/.cache/yay/
