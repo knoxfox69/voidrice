@@ -14,7 +14,7 @@ configuration {
     background-colour:           var(background-transparent);
     foreground-colour:           var(foreground);
     alternate-background:        var(selected);
-	alternate-foreground:		 var(background);
+	alternate-foreground:		 var(selected);
 
     font:                        "JetBrains Mono Nerd Font 16";
 }
@@ -102,7 +102,7 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
+
     spacing:                     10px;
     margin:                      0px;
     padding:                     0px;

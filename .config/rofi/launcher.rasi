@@ -4,6 +4,7 @@
  * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
  *******************************************************************************/
 
+@import                          "colors.rasi"
 * {
     font:   "FiraCode Nerd Font Medium 12";
 
@@ -11,7 +12,7 @@
     bg1:     #3B4252;
     fg0:     #D8DEE9;
 
-    accent-color:     #E5809E;
+    accent-color:     var(selected);
     urgent-color:     #EBCB8B;
 
     background-color:   transparent;
