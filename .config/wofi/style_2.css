@@ -1,0 +1,43 @@
+window {
+  margin: 0;
+  padding: 0;
+  border: 5px solid #528893;
+  background-color: #0f1518;
+  border-radius: 0;
+  font-family: "Hack Nerd Font";
+}
+
+#scroll {
+  margin: 15px;
+  border: none;
+}
+
+#text {
+  color: #c3cdd4;
+  width: 100%;
+  padding: 10px;
+  margin: 2px;
+  border: none;
+  border-radius: 0;
+}
+
+#selected {
+  background-color: #528893;
+  border: none;
+  border-radius: 0;
+}
+
+#entry {
+  background-color: #0f1518;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#unselected {
+  background-color: #1f3038;
+}
+
+#outer-box {
+  margin: -30px 0 0 0;
+}

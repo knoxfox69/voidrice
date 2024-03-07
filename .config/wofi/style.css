@@ -1,0 +1,49 @@
+window {
+  margin: 5px;
+  border: none;
+  background-color: #0a0e0f;
+  border-radius: 15px;
+  font-family: monospace;
+}
+
+#input {
+  margin: 5px;
+  border: none;
+  background-color: #0f171b;
+  color: #e9e5db;
+  border-radius: 8px;
+}
+
+#inner-box {
+  margin: 5px;
+  border: none;
+  background-color: #0a0e0f;
+}
+
+#outer-box {
+  margin: 5px;
+  border: none;
+  background-color: #0a0e0f;
+}
+
+#scroll {
+  margin: 5px;
+  border: none;
+  background-color: #0a0e0f;
+}
+
+#text {
+  color: #e9e5db;
+  margin: 5px;
+}
+
+#entry:selected {
+  background-color: #219dd7;
+}
+
+#entry:selected label,
+#entry:selected image {
+  color: black;
+  background-color: #219dd7;
+  border: none;
+}

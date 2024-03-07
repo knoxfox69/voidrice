@@ -1,0 +1,17 @@
+lines=5
+style=~/.config/wofi/style_2.css
+location=center
+; xoffset=710
+; yoffset=275
+show=drun
+width=600
+height=200
+always_parse_args=true
+show_all=true
+print_command=true
+layer=overlay
+insensitive=true
+prompt=
+allow_images=true
+hide_scroll=true
+hide_search=true
