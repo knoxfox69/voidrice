@@ -10,6 +10,9 @@ export PATH=$PATH:~/.local/bin
 
 unsetopt PROMPT_SP
 
+# Set vagrant provider to libvirt
+export VAGRANT_DEFAULT_PROVIDER=libvirt
+
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="foot"
