@@ -17,10 +17,11 @@ Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
 
 set title
-set bg=light
+colorscheme catppuccin " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 set go=a
 set mouse=a
 set nohlsearch
