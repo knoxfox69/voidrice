@@ -19,10 +19,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+  { lazy = true, "nvim-lua/plenary.nvim" },
   {
     "EdenEast/nightfox.nvim",
     priority = 1000,
     config = true,
+  },
+  {
+    "echasnovski/mini.statusline",
+    config = function()
+      require("mini.statusline").setup { set_vim_settings = false }
+    end,
   }
 }
 require("lazy").setup(plugins, require "lazy_config")
