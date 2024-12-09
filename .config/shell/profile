@@ -14,8 +14,13 @@ unsetopt PROMPT_SP
 export VAGRANT_DEFAULT_PROVIDER=libvirt
 export VAGRANT_DISABLE_STRICT_DEPENDENCY_ENFORCEMENT=1
 
-# Set default AWS CLI profile to CV mgmt
+# AWS
+## Set default AWS CLI profile to CV mgmt
 export AWS_PROFILE=cv-mgmt
+## AWS CLI command completion
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+complete -C '/usr/local/bin/aws_completer' aws
 
 # Default programs:
 export EDITOR="nvim"
