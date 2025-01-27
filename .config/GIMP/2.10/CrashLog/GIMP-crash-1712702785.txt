@@ -1,0 +1,286 @@
+
+# Stack traces obtained from PID 10626 - Thread 10626 #
+
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.archlinux.org>
+Enable debuginfod for this session? (y or [n]) [answered N; input not from terminal]
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+[New LWP 10630]
+[New LWP 10631]
+[New LWP 10632]
+[New LWP 10633]
+[New LWP 10634]
+[New LWP 10635]
+[New LWP 10636]
+[New LWP 10637]
+[New LWP 10638]
+[New LWP 10639]
+[New LWP 10640]
+[New LWP 10641]
+[New LWP 10642]
+[New LWP 10643]
+[New LWP 10645]
+[New LWP 10647]
+[New LWP 10653]
+[New LWP 10706]
+[New LWP 10714]
+[New LWP 10736]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+0x000075a9a94976bc in read () from /usr/lib/libc.so.6
+  Id   Target Id                                          Frame 
+* 1    Thread 0x75a9a7bfc180 (LWP 10626) "gimp-2.10"      0x000075a9a94976bc in read () from /usr/lib/libc.so.6
+  2    Thread 0x75a9a72006c0 (LWP 10630) "worker"         0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  3    Thread 0x75a9a68006c0 (LWP 10631) "worker"         0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  4    Thread 0x75a9a5e006c0 (LWP 10632) "worker"         0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  5    Thread 0x75a9954006c0 (LWP 10633) "worker"         0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  6    Thread 0x75a9a54006c0 (LWP 10634) "worker"         0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  7    Thread 0x75a9a4a006c0 (LWP 10635) "worker"         0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  8    Thread 0x75a99fe006c0 (LWP 10636) "worker"         0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  9    Thread 0x75a99f4006c0 (LWP 10637) "worker"         0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  10   Thread 0x75a99ea006c0 (LWP 10638) "worker"         0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  11   Thread 0x75a99e0006c0 (LWP 10639) "worker"         0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  12   Thread 0x75a99d6006c0 (LWP 10640) "worker"         0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  13   Thread 0x75a99cc006c0 (LWP 10641) "pool-spawner"   0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  14   Thread 0x75a997e006c0 (LWP 10642) "gmain"          0x000075a9a94970bf in poll () from /usr/lib/libc.so.6
+  15   Thread 0x75a9974006c0 (LWP 10643) "gdbus"          0x000075a9a94970bf in poll () from /usr/lib/libc.so.6
+  16   Thread 0x75a9766006c0 (LWP 10645) "async"          0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  17   Thread 0x75a9752006c0 (LWP 10647) "gimp-2.10"      0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  18   Thread 0x75a96b4006c0 (LWP 10653) "gimp-2.10"      0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  19   Thread 0x75a96be006c0 (LWP 10706) "swap writer"    0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  20   Thread 0x75a960c006c0 (LWP 10714) "paint"          0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+  21   Thread 0x75a96a0006c0 (LWP 10736) "pool-gimp-2.10" 0x000075a9a94a288d in syscall () from /usr/lib/libc.so.6
+
+Thread 21 (Thread 0x75a96a0006c0 (LWP 10736) "pool-gimp-2.10"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975fe43 in g_cond_wait_until () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a96cf425 in ??? () at /usr/lib/libglib-2.0.so.0
+#3  0x000075a9a96cf587 in g_async_queue_timeout_pop () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a9738a5e in ??? () at /usr/lib/libglib-2.0.so.0
+#5  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#6  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#7  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 20 (Thread 0x75a960c006c0 (LWP 10714) "paint"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x00005e974000a164 in ??? ()
+#3  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#5  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 19 (Thread 0x75a96be006c0 (LWP 10706) "swap writer"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a9ce75d2 in ??? () at /usr/lib/libgegl-0.4.so.0
+#3  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#5  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 18 (Thread 0x75a96b4006c0 (LWP 10653) "gimp-2.10"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a96cf454 in ??? () at /usr/lib/libglib-2.0.so.0
+#3  0x000075a9a96cf4bc in g_async_queue_pop () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9aa14dc48 in ??? () at /usr/lib/libpangoft2-1.0.so.0
+#5  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#6  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#7  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 17 (Thread 0x75a9752006c0 (LWP 10647) "gimp-2.10"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a96cf454 in ??? () at /usr/lib/libglib-2.0.so.0
+#3  0x000075a9a96cf4bc in g_async_queue_pop () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9aa14dc48 in ??? () at /usr/lib/libpangoft2-1.0.so.0
+#5  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#6  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#7  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 16 (Thread 0x75a9766006c0 (LWP 10645) "async"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x00005e9740258d77 in ??? ()
+#3  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#5  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 15 (Thread 0x75a9974006c0 (LWP 10643) "gdbus"):
+#0  0x000075a9a94970bf in poll () at /usr/lib/libc.so.6
+#1  0x000075a9a9764306 in ??? () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a9705dc7 in g_main_loop_run () at /usr/lib/libglib-2.0.so.0
+#3  0x000075a9a999c83c in ??? () at /usr/lib/libgio-2.0.so.0
+#4  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#5  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#6  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 14 (Thread 0x75a997e006c0 (LWP 10642) "gmain"):
+#0  0x000075a9a94970bf in poll () at /usr/lib/libc.so.6
+#1  0x000075a9a9764306 in ??? () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a9704712 in g_main_context_iteration () at /usr/lib/libglib-2.0.so.0
+#3  0x000075a9a9704762 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#5  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#6  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 13 (Thread 0x75a99cc006c0 (LWP 10641) "pool-spawner"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a96cf454 in ??? () at /usr/lib/libglib-2.0.so.0
+#3  0x000075a9a973429e in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#5  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#6  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 12 (Thread 0x75a99d6006c0 (LWP 10640) "worker"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a9ca5c94 in ??? () at /usr/lib/libgegl-0.4.so.0
+#3  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#5  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 11 (Thread 0x75a99e0006c0 (LWP 10639) "worker"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a9ca5c94 in ??? () at /usr/lib/libgegl-0.4.so.0
+#3  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#5  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 10 (Thread 0x75a99ea006c0 (LWP 10638) "worker"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a9ca5c94 in ??? () at /usr/lib/libgegl-0.4.so.0
+#3  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#5  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 9 (Thread 0x75a99f4006c0 (LWP 10637) "worker"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a9ca5c94 in ??? () at /usr/lib/libgegl-0.4.so.0
+#3  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#5  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 8 (Thread 0x75a99fe006c0 (LWP 10636) "worker"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a9ca5c94 in ??? () at /usr/lib/libgegl-0.4.so.0
+#3  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#5  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 7 (Thread 0x75a9a4a006c0 (LWP 10635) "worker"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a9ca5c94 in ??? () at /usr/lib/libgegl-0.4.so.0
+#3  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#5  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 6 (Thread 0x75a9a54006c0 (LWP 10634) "worker"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a9ca5c94 in ??? () at /usr/lib/libgegl-0.4.so.0
+#3  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#5  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 5 (Thread 0x75a9954006c0 (LWP 10633) "worker"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a9ca5c94 in ??? () at /usr/lib/libgegl-0.4.so.0
+#3  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#5  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 4 (Thread 0x75a9a5e006c0 (LWP 10632) "worker"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a9ca5c94 in ??? () at /usr/lib/libgegl-0.4.so.0
+#3  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#5  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 3 (Thread 0x75a9a68006c0 (LWP 10631) "worker"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a9ca5c94 in ??? () at /usr/lib/libgegl-0.4.so.0
+#3  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#5  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 2 (Thread 0x75a9a72006c0 (LWP 10630) "worker"):
+#0  0x000075a9a94a288d in syscall () at /usr/lib/libc.so.6
+#1  0x000075a9a975f487 in g_cond_wait () at /usr/lib/libglib-2.0.so.0
+#2  0x000075a9a9ca5c94 in ??? () at /usr/lib/libgegl-0.4.so.0
+#3  0x000075a9a9733065 in ??? () at /usr/lib/libglib-2.0.so.0
+#4  0x000075a9a942755a in ??? () at /usr/lib/libc.so.6
+#5  0x000075a9a94a4a3c in ??? () at /usr/lib/libc.so.6
+
+Thread 1 (Thread 0x75a9a7bfc180 (LWP 10626) "gimp-2.10"):
+#0  0x000075a9a94976bc in read () at /usr/lib/libc.so.6
+#1  0x000075a9aa1c4220 in gimp_stack_trace_print () at /usr/lib/libgimpbase-2.0.so.0
+#2  0x00005e973ff83032 in ??? ()
+#3  0x00005e973ff833fe in gimp_fatal_error ()
+#4  0x00005e973ff83462 in ??? ()
+#5  0x000075a9a93d8770 in <signal handler called> () at /usr/lib/libc.so.6
+#6  0x000075a9aa289279 in ??? () at /usr/lib/libgtk-x11-2.0.so.0
+#7  0x000075a9aa28a28f in gtk_button_set_label () at /usr/lib/libgtk-x11-2.0.so.0
+#8  0x000075a9a981a279 in ??? () at /usr/lib/libgobject-2.0.so.0
+#9  0x000075a9a981d52f in g_object_set_valist () at /usr/lib/libgobject-2.0.so.0
+#10 0x000075a9a981d9b9 in g_object_set () at /usr/lib/libgobject-2.0.so.0
+#11 0x00005e973ffd493a in ??? ()
+#12 0x000075a9a9809730 in g_closure_invoke () at /usr/lib/libgobject-2.0.so.0
+#13 0x000075a9a9838896 in ??? () at /usr/lib/libgobject-2.0.so.0
+#14 0x000075a9a98297a2 in ??? () at /usr/lib/libgobject-2.0.so.0
+#15 0x000075a9a98299d7 in g_signal_emit_valist () at /usr/lib/libgobject-2.0.so.0
+#16 0x000075a9a9829a94 in g_signal_emit () at /usr/lib/libgobject-2.0.so.0
+#17 0x00005e974027e250 in gimp_container_remove ()
+#18 0x00005e97402fe996 in ??? ()
+#19 0x00005e974027dda5 in gimp_container_clear ()
+#20 0x00005e974027f02e in ??? ()
+#21 0x000075a9a98184ee in g_object_unref () at /usr/lib/libgobject-2.0.so.0
+#22 0x00005e973ffcc598 in ??? ()
+#23 0x000075a9a9813217 in ??? () at /usr/lib/libgobject-2.0.so.0
+#24 0x000075a9a96e41e2 in ??? () at /usr/lib/libglib-2.0.so.0
+#25 0x000075a9a9815505 in ??? () at /usr/lib/libgobject-2.0.so.0
+#26 0x000075a9a98187d5 in g_object_run_dispose () at /usr/lib/libgobject-2.0.so.0
+#27 0x00005e973ffd4997 in ??? ()
+#28 0x000075a9a9809730 in g_closure_invoke () at /usr/lib/libgobject-2.0.so.0
+#29 0x000075a9a9838896 in ??? () at /usr/lib/libgobject-2.0.so.0
+#30 0x000075a9a98297a2 in ??? () at /usr/lib/libgobject-2.0.so.0
+#31 0x000075a9a98299d7 in g_signal_emit_valist () at /usr/lib/libgobject-2.0.so.0
+#32 0x000075a9a9829a94 in g_signal_emit () at /usr/lib/libgobject-2.0.so.0
+#33 0x000075a9a9809730 in g_closure_invoke () at /usr/lib/libgobject-2.0.so.0
+#34 0x000075a9a9838896 in ??? () at /usr/lib/libgobject-2.0.so.0
+#35 0x000075a9a98297a2 in ??? () at /usr/lib/libgobject-2.0.so.0
+#36 0x000075a9a98299d7 in g_signal_emit_valist () at /usr/lib/libgobject-2.0.so.0
+#37 0x000075a9a9829a94 in g_signal_emit () at /usr/lib/libgobject-2.0.so.0
+#38 0x000075a9aa2894a6 in ??? () at /usr/lib/libgtk-x11-2.0.so.0
+#39 0x000075a9a9809730 in g_closure_invoke () at /usr/lib/libgobject-2.0.so.0
+#40 0x000075a9a98389da in ??? () at /usr/lib/libgobject-2.0.so.0
+#41 0x000075a9a98297a2 in ??? () at /usr/lib/libgobject-2.0.so.0
+#42 0x000075a9a98299d7 in g_signal_emit_valist () at /usr/lib/libgobject-2.0.so.0
+#43 0x000075a9a9829a94 in g_signal_emit () at /usr/lib/libgobject-2.0.so.0
+#44 0x000075a9aa289caa in ??? () at /usr/lib/libgtk-x11-2.0.so.0
+#45 0x000075a9aa338f08 in ??? () at /usr/lib/libgtk-x11-2.0.so.0
+#46 0x000075a9a9809730 in g_closure_invoke () at /usr/lib/libgobject-2.0.so.0
+#47 0x000075a9a9838f4a in ??? () at /usr/lib/libgobject-2.0.so.0
+#48 0x000075a9a9829095 in ??? () at /usr/lib/libgobject-2.0.so.0
+#49 0x000075a9a98299d7 in g_signal_emit_valist () at /usr/lib/libgobject-2.0.so.0
+#50 0x000075a9a9829a94 in g_signal_emit () at /usr/lib/libgobject-2.0.so.0
+#51 0x000075a9aa46d88d in ??? () at /usr/lib/libgtk-x11-2.0.so.0
+#52 0x000075a9aa33d676 in gtk_propagate_event () at /usr/lib/libgtk-x11-2.0.so.0
+#53 0x000075a9aa33ed73 in gtk_main_do_event () at /usr/lib/libgtk-x11-2.0.so.0
+#54 0x000075a9aa705dbc in ??? () at /usr/lib/libgdk-x11-2.0.so.0
+#55 0x000075a9a9705199 in ??? () at /usr/lib/libglib-2.0.so.0
+#56 0x000075a9a97643bf in ??? () at /usr/lib/libglib-2.0.so.0
+#57 0x000075a9a9705dc7 in g_main_loop_run () at /usr/lib/libglib-2.0.so.0
+#58 0x00005e973ff87d73 in app_run ()
+#59 0x00005e973ff7d662 in main ()
+[Inferior 1 (process 10626) detached]

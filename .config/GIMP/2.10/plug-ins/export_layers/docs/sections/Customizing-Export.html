@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="#0099cc" name="theme-color">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+  
+    <link href="../assets/css/style.css" rel="stylesheet">
+  
+  <link href="../favicon.ico" rel="icon">
+  
+  
+</head>
+
+  
+  <body>
+    <section class="navbar">
+  <div class="navbar-container" role="navigation">
+    <div>
+      <ul>
+        
+        <li><a class="active" href="index.html">Documentation</a></li>
+        <li><a href="https://github.com/khalim19/gimp-plugin-export-layers">View on GitHub</a></li>
+      </ul>
+    </div>
+    <div class="right">
+      <ul class="right">
+        
+          <li>
+            <a href="Usage.html">« Usage</a>
+          </li>
+        
+        
+          <li>
+            <a href="Known-Issues.html">Known Issues »</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</section>
+
+    
+    <section class="main-content">
+      <h1>Customizing Export</h1>
+      
+      <ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#customizing-layer-names" id="markdown-toc-customizing-layer-names">Customizing Layer Names</a>    <ul>
+      <li><a href="#available-fields" id="markdown-toc-available-fields">Available fields</a></li>
+      <li><a href="#inserting-reserved-characters-in-arguments" id="markdown-toc-inserting-reserved-characters-in-arguments">Inserting reserved characters in arguments</a></li>
+    </ul>
+  </li>
+  <li><a href="#customizing-export-with-procedures" id="markdown-toc-customizing-export-with-procedures">Customizing Export with Procedures</a>    <ul>
+      <li><a href="#built-in-procedures" id="markdown-toc-built-in-procedures">Built-in Procedures</a></li>
+      <li><a href="#adding-custom-procedures-" id="markdown-toc-adding-custom-procedures-">Adding Custom Procedures <a name="Adding-Custom-Procedures"></a></a></li>
+    </ul>
+  </li>
+  <li><a href="#selecting-layers-to-export-with-constraints" id="markdown-toc-selecting-layers-to-export-with-constraints">Selecting Layers to Export with Constraints</a>    <ul>
+      <li><a href="#built-in-constraints" id="markdown-toc-built-in-constraints">Built-in Constraints</a></li>
+    </ul>
+  </li>
+  <li><a href="#tagging-layers" id="markdown-toc-tagging-layers">Tagging Layers</a></li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Beyond the basic features, Export Layers allows you to:</p>
+<ul>
+  <li>customize the layer name,</li>
+  <li>apply additional procedures before the export (insert background, scale down…)</li>
+  <li>selecting which layers to export by applying constraints (only visible layers, …)</li>
+</ul>
+
+<p>To enable customization, press the “Settings” button and choose “Show More Settings”.</p>
+
+<p><img alt="Dialog of Export Layers with additional customization" src="../images/screenshot_dialog_customizing_export.png"></p>
+
+<p>You may adjust the height of the bottom pane by dragging the separator above the procedures and constraints.</p>
+
+<h2 id="customizing-layer-names">Customizing Layer Names</h2>
+
+<p>By default, layer names are used as filenames.
+The text entry next to “Save as” lets you customize the filenames.</p>
+
+<p>There are several built-in <em>fields</em> that you can combine to form a filename pattern.
+For example, “image[001]” renames the layers to “image001”, “image002” and so on.</p>
+
+<p>The preview automatically updates as you change the filename pattern and so can greatly help you figure out how your specified pattern affects the layer names.</p>
+
+<p>Fields must be enclosed in square brackets and must have a correct number of arguments.
+If you place the text cursor inside a field, a corresponding tooltip above the text entry shows you the correct usage along with examples.</p>
+
+<p>Arguments must be separated by commas.
+Invalid arguments result in the field being inserted literally.</p>
+
+<h3 id="available-fields">Available fields</h3>
+
+<p>You can choose the fields from the dropdown list displayed when clicking on the text entry or you can type the fields manually.</p>
+
+<p><strong>Number</strong></p>
+
+<p>A number incrementing for each layer.
+The numbering is separate for each layer group.</p>
+
+<p>Examples:</p>
+<ul>
+  <li><code class="highlighter-rouge">[1]</code> → <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">2</code>, …</li>
+  <li><code class="highlighter-rouge">[001]</code> → <code class="highlighter-rouge">001</code>, <code class="highlighter-rouge">002</code>, …, <code class="highlighter-rouge">009</code>, <code class="highlighter-rouge">010</code>, …, <code class="highlighter-rouge">999</code>, <code class="highlighter-rouge">1000</code>, …</li>
+  <li><code class="highlighter-rouge">[005]</code> → <code class="highlighter-rouge">005</code>, <code class="highlighter-rouge">006</code>, …</li>
+</ul>
+
+<p><strong>[layer name]</strong></p>
+
+<p>The layer name.</p>
+
+<p>Arguments:</p>
+<ul>
+  <li><code class="highlighter-rouge">%e</code> If a layer has a recognized file extension, keep the extension.</li>
+  <li><code class="highlighter-rouge">%i</code>: If a layer has a recognized file extension that matches the extension in the “File extension” text entry, keep the extension.</li>
+</ul>
+
+<p><strong>[image name]</strong></p>
+
+<p>The current image name.</p>
+
+<p>Arguments:</p>
+<ul>
+  <li><code class="highlighter-rouge">%e</code>: If the image has a file extension, keep the extension.</li>
+</ul>
+
+<p><strong>[layer path]</strong></p>
+
+<p>The “full path” of a layer.
+For example, if the image has a layer group named <code class="highlighter-rouge">Body</code> containing a layer group named <code class="highlighter-rouge">Hands</code> containing a layer named <code class="highlighter-rouge">Left</code>, the layer path will be <code class="highlighter-rouge">Body-Hands-Left</code>.</p>
+
+<p>Arguments:</p>
+<ul>
+  <li><em>separator</em>: A string separating the path components.
+Defaults to <code class="highlighter-rouge">-</code>.</li>
+  <li><em>wrapper</em>: A string that wraps around each path component.
+The wrapper must contain <code class="highlighter-rouge">%c</code> denoting the path component.
+Defaults to <code class="highlighter-rouge">%c</code>.</li>
+</ul>
+
+<p>Examples:</p>
+<ul>
+  <li><code class="highlighter-rouge">[layer path]</code> → <code class="highlighter-rouge">Body-Hands-Left</code></li>
+  <li><code class="highlighter-rouge">[layer path, _]</code> → <code class="highlighter-rouge">Body_Hands_Left</code></li>
+  <li><code class="highlighter-rouge">[layer path, _, (%c)]</code> → <code class="highlighter-rouge">(Body)_(Hands)_(Left)</code></li>
+</ul>
+
+<p><strong>[tags]</strong></p>
+
+<p>All tags assigned to a layer.
+For example, suppose that a layer has the following tags: <code class="highlighter-rouge">left</code>, <code class="highlighter-rouge">middle</code>, <code class="highlighter-rouge">right</code>.
+Then (by default) the tags will be formatted as <code class="highlighter-rouge">left-middle-right</code>.</p>
+
+<p>Without arguments, tags are inserted in alphabetical order.</p>
+
+<p>See <a href="#tagging-layers">Tagging Layers</a> for information about layer tags.</p>
+
+<p>Arguments:</p>
+<ul>
+  <li><em>separator</em>: A string separating the tags.
+Defaults to <code class="highlighter-rouge">-</code>.</li>
+  <li><em>wrapper</em>: A string that wraps around each path component.
+The wrapper must contain <code class="highlighter-rouge">%t</code> denoting the tag.</li>
+  <li><em>tags…</em>: Specific tag names as comma-separated arguments.
+If omitted, all tags are inserted.
+Tags not assigned to a layer are ignored.</li>
+</ul>
+
+<p>If at least two arguments are specified and the second argument contains <code class="highlighter-rouge">%t</code>, then the first argument is considered to be the <em>separator</em> argument and the second argument the <em>wrapper</em> argument.</p>
+
+<p>Examples:</p>
+<ul>
+  <li><code class="highlighter-rouge">[tags]</code> → <code class="highlighter-rouge">left-middle-right</code></li>
+  <li><code class="highlighter-rouge">[tags, right, left]</code> → <code class="highlighter-rouge">right-left</code></li>
+  <li><code class="highlighter-rouge">[tags, _, (%t)]</code> → <code class="highlighter-rouge">(left)_(middle)_(right)</code></li>
+  <li><code class="highlighter-rouge">[tags, _, (%t), right, left]</code> → <code class="highlighter-rouge">(right)_(left)</code></li>
+</ul>
+
+<p><strong>[current date]</strong></p>
+
+<p>The current date.</p>
+
+<p>Arguments:</p>
+<ul>
+  <li><em>format</em>: Date format as per the <a href="http://strftime.org/index.html">Python <code class="highlighter-rouge">strftime</code> function</a>.
+Defaults to <code class="highlighter-rouge">%Y-%m-%d</code> (year-month-day).</li>
+</ul>
+
+<p>Examples:</p>
+<ul>
+  <li><code class="highlighter-rouge">[current date]</code> → <code class="highlighter-rouge">2019-01-28</code></li>
+  <li><code class="highlighter-rouge">[current date, %m.%d.%Y_%H-%M]</code> → <code class="highlighter-rouge">28.01.2019_19-04</code></li>
+</ul>
+
+<p><strong>[attributes]</strong></p>
+
+<p>Layer or image attributes.</p>
+
+<p>Arguments</p>
+<ul>
+  <li><em>pattern</em>: A string formatting the attributes.
+Available attributes:
+    <ul>
+      <li><code class="highlighter-rouge">%w</code> - The layer width.</li>
+      <li><code class="highlighter-rouge">%h</code> - The layer height.</li>
+      <li><code class="highlighter-rouge">%x</code> - The layer <em>x</em>-offset.</li>
+      <li><code class="highlighter-rouge">%y</code> - The layer <em>y</em>-offset.</li>
+      <li><code class="highlighter-rouge">%iw</code> - The image width.</li>
+      <li><code class="highlighter-rouge">%ih</code> - The image height.</li>
+    </ul>
+  </li>
+  <li><em>measure</em>: The measure in which the attribute values are displayed.
+Applies to <code class="highlighter-rouge">%w</code>, <code class="highlighter-rouge">%h</code>, <code class="highlighter-rouge">%x</code> and <code class="highlighter-rouge">%y</code> only.
+Available measures:
+    <ul>
+      <li><code class="highlighter-rouge">%px</code> (default) - Display absolute values in pixels.</li>
+      <li><code class="highlighter-rouge">%pc</code> - Display percentages relative to the image.
+A number may be included after <code class="highlighter-rouge">%pc</code> to specify the number of digits to round to (2 by default).
+For example, <code class="highlighter-rouge">%pc1</code> displays percentages rounded to a single decimal digit.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Examples:</p>
+<ul>
+  <li><code class="highlighter-rouge">[attributes, %w-%h-%x-%y]</code> → <code class="highlighter-rouge">1000-500-0-40</code></li>
+  <li><code class="highlighter-rouge">[attributes, %w-%h-%x-%y, %pc1]</code> → <code class="highlighter-rouge">1.0-0.8-0.0-0.1</code></li>
+</ul>
+
+<h3 id="inserting-reserved-characters-in-arguments">Inserting reserved characters in arguments</h3>
+
+<p>To insert a literal space, comma or square brackets (<code class="highlighter-rouge">[</code> and <code class="highlighter-rouge">]</code>) in an argument, enclose the argument with square brackets.
+Literal square brackets must be doubled.</p>
+
+<p>If the last argument is enclosed in square brackets, leave a single space between the last and the second to last closing square bracket.</p>
+
+<p>To insert a literal <code class="highlighter-rouge">%</code> character, double the character.</p>
+
+<p>Examples:</p>
+<ul>
+  <li><code class="highlighter-rouge">[layer path, [ ], %c]</code> → <code class="highlighter-rouge">Body Hands Left</code></li>
+  <li><code class="highlighter-rouge">[layer path, [ ] ]</code> → <code class="highlighter-rouge">Body Hands Left</code></li>
+  <li><code class="highlighter-rouge">[layer path, [ ], %%%c%%]</code> → <code class="highlighter-rouge">%Body% %Hands% %Left%</code></li>
+  <li><code class="highlighter-rouge">[layer path, [,], [[[%c]]] ]</code> → <code class="highlighter-rouge">[Body],[Hands],[Left]</code></li>
+</ul>
+
+<h2 id="customizing-export-with-procedures">Customizing Export with Procedures</h2>
+
+<p>Procedures allow you to process layers before they are exported.
+To add procedures before the export of each layer, press the “Add Procedure…” button and select one of the available procedures, or add a <a href="#Adding-Custom-Procedures">custom procedure</a>.</p>
+
+<p>For each added procedure, you may perform any of the following:</p>
+<ul>
+  <li>enable and disable the procedure,</li>
+  <li>move the procedure up/down by dragging the procedure with mouse or by keyboard,</li>
+  <li>edit the procedure.
+You may edit the name and the values of its arguments (if any) that are applied to each layer.</li>
+  <li>remove the procedure.</li>
+</ul>
+
+<p>You can add the same procedure multiple times.</p>
+
+<h3 id="built-in-procedures">Built-in Procedures</h3>
+
+<p><strong>Insert background layers</strong></p>
+
+<p>Insert layers tagged with “Background” as background for each layer.
+To set a layer as a background layer, see <a href="#tagging-layers">Tagging Layers</a>.</p>
+
+<p>Note that even background layers get exported - to prevent this behavior, enable the “Only layers without tags” constraint.</p>
+
+<p>You may modify the tag representing the background layers by editing the procedure argument “Tag”.</p>
+
+<p>In the dialog, this procedure is always inserted in the first position.
+This prevents potential confusion when “Use layer size” is unchecked and the background is offset relative to the layer rather than the image canvas.
+If this is your intention, you can always move this procedure below “Use layer size”.</p>
+
+<p><strong>Insert foreground layers</strong></p>
+
+<p>Insert layers tagged with “Foreground” as foreground for each layer.
+To set a layer as a foreground layer, see <a href="#tagging-layers">Tagging Layers</a>.</p>
+
+<p>Note that even foreground layers get exported - to prevent this behavior, enable the “Only layers without tags” constraint.</p>
+
+<p>You may modify the tag representing the foreground layers by editing the procedure argument “Tag”.</p>
+
+<p>In the dialog, this procedure is always inserted in the first position.
+This prevents potential confusion when “Use layer size” is unchecked and the foreground is offset relative to the layer rather than the image canvas.
+If this is your intention, you can always move this procedure below “Use layer size”.</p>
+
+<p><strong>Inherit transparency from layer groups</strong></p>
+
+<p>Combine opacity from all parent layer groups for each layer.
+This corresponds to how the layer is actually displayed in the image canvas.</p>
+
+<p>For example, if a layer has 50% opacity and its parent group also has 50% opacity, the resulting opacity of the exported layer will be 25%.</p>
+
+<p><strong>Autocrop background</strong></p>
+
+<p>Automatically crop the background formed by layers tagged with “Background”.
+Note that autocrop is performed on the entire background, not on the background layers individually.</p>
+
+<p><strong>Autocrop foreground</strong></p>
+
+<p>Same as “Autocrop background”, but works on the foreground layers instead.</p>
+
+<p><strong>Ignore folder structure</strong></p>
+
+<p>Export all layers to the output directory on the same level, i.e. do not create subfolders for layer groups.</p>
+
+<p><strong>Use file extensions in layer names</strong></p>
+
+<p>If a layer has a recognized file extension, use that file extension instead of the file extension in the “File extension” text entry.</p>
+
+<p><strong>Use layer size</strong></p>
+
+<p>If enabled, layers will be resized (not scaled) to their size instead of the image size.
+This procedure is enabled by default.</p>
+
+<p>To keep the size of the image canvas and the layer position within the image, disable this setting.
+Note that in that case the layers will be cut off if they are partially outside the image canvas.
+To export the entire layer, leave this setting enabled.</p>
+
+<h3 id="adding-custom-procedures-">Adding Custom Procedures <a name="Adding-Custom-Procedures"></a></h3>
+
+<p>You can add any procedure available in the GIMP Procedural Database (PDB) by pressing “Add Procedure…” and then selecting “Add Custom Procedure…”.
+Select the desired procedure from the browser dialog and press “Add”.
+The edit dialog allows you to edit the procedure name and the values of its arguments.</p>
+
+<h2 id="selecting-layers-to-export-with-constraints">Selecting Layers to Export with Constraints</h2>
+
+<p>To include or exclude layers from the export according to specific criteria, press the “Add Constraint…” button and select one of the available constraints.
+As with procedures, you can enable, disable, reorder, edit or remove constraints as needed.
+Adding the same constraint multiple times is also possible.</p>
+
+<p>Currently, only several built-in constraints are supported.
+Future versions will allow specifying custom constraints.</p>
+
+<h3 id="built-in-constraints">Built-in Constraints</h3>
+
+<p><strong>Include layers</strong></p>
+
+<p>Export all layers that are not groups.
+This constraint is enabled by default.</p>
+
+<p><strong>Include layer groups</strong></p>
+
+<p>Export all layer groups as layers.</p>
+
+<p><strong>Include empty layer groups</strong></p>
+
+<p>Create subfolders for empty layer groups.</p>
+
+<p><strong>Only visible layers</strong></p>
+
+<p>If enabled, invisible layers will not be exported.
+Visible layers within invisible layer groups will also not be exported.</p>
+
+<p><strong>Only top-level layers</strong></p>
+
+<p>Export only layers at the top of the layer tree (i.e. do not export layers inside any layer group).</p>
+
+<p><strong>Only layers with tags</strong></p>
+
+<p>Export only layers with tags.</p>
+
+<p>By default, all layers without tags are excluded from export.
+To export only layers with specific tags, edit this constraint and add the tags for the “Tags” argument.
+For example, adding “background” will export only layers containing the “background” tag.
+Other tagged layers will be excluded.</p>
+
+<p>See <a href="#tagging-layers">Tagging Layers</a> for information about tags.</p>
+
+<p><strong>Only layers without tags</strong></p>
+
+<p>Export only layers with no tags.</p>
+
+<p>By default, all layers with tags are excluded from export.
+To ignore only specific tags, edit this constraint and add the tags for the “Tags” argument.</p>
+
+<p>See <a href="#tagging-layers">Tagging Layers</a> for information about tags.</p>
+
+<p><strong>Only layers matching file extension</strong></p>
+
+<p>Export only layers having a file extension matching the extension typed in the text entry.</p>
+
+<p><strong>Only layers selected in preview</strong></p>
+
+<p>Export only layers selected in the preview.
+If you save settings, the selection is saved as well.</p>
+
+<h2 id="tagging-layers">Tagging Layers</h2>
+
+<p>Tags attached to layers allow you to customize each layer individually.
+To attach a tag to one or more layers, select them in the preview, right-click on the selection and choose your tag.
+Tagged layers are indicated with a tag icon in the preview.</p>
+
+<p>Adding or removing tags modifies the current image.
+Save the image to keep the tags permanently.</p>
+
+<p>By default, Export Layers defines “Background” and “Foreground” tags.
+To add custom tags, right-click anywhere on the preview, select “Add New Tag…” and name your new tag.
+The new tag will be immediately added to the currently selected layer(s).</p>
+
+<p>To remove custom tags, remove them first from all layers, then right-click anywhere on the preview, select “Remove Tag…” and select the tag you wish to remove.</p>
+
+    </section>
+  </body>
+</html>

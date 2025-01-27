@@ -1,0 +1,6 @@
+# GIMP gimp-by-color-select-tool options
+
+(threshold 12.800000000000001)
+(draw-mask yes)
+
+# end of gimp-by-color-select-tool options

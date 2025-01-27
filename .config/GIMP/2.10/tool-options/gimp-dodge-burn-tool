@@ -1,0 +1,20 @@
+# GIMP gimp-dodge-burn-tool options
+
+(foreground (color-rgb 0.80784320831298828 0.7450980544090271 0.62352943420410156))
+(background (color-rgb 0 0 0))
+(brush "2. Hardness 100")
+(dynamics "Dynamics Off")
+(palette "Color History")
+(brush-size 76)
+(brush-hardness 0.88)
+(brush-force 0.28000000000000003)
+(dynamics-expanded yes)
+(fade-length 283)
+(fade-repeat sawtooth)
+(fade-unit percent)
+(use-smoothing yes)
+(type burn)
+(mode highlights)
+(exposure 23)
+
+# end of gimp-dodge-burn-tool options

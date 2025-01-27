@@ -1,0 +1,12 @@
+# GIMP gimp-gradient-tool options
+
+(foreground (color-rgb 0.80784320831298828 0.7450980544090271 0.62352943420410156))
+(background (color-rgb 0 0 0))
+(gradient "FG to BG (HSV clockwise hue)")
+(brush-size 51)
+(brush-hardness 0.5)
+(gradient-reverse yes)
+(gradient-blend-color-space rgb-linear)
+(instant yes)
+
+# end of gimp-gradient-tool options

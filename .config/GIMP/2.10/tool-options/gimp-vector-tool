@@ -1,0 +1,11 @@
+# GIMP gimp-vector-tool options
+
+(foreground (color-rgb 0.80784320831298828 0.7450980544090271 0.62352943420410156))
+(background (color-rgb 0 0 0))
+(brush "2. Hardness 100")
+(dynamics "Dynamics Off")
+(pattern "3D Green")
+(gradient "FG to BG (HSV clockwise hue)")
+(palette "Color History")
+
+# end of gimp-vector-tool options

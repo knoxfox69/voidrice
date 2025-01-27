@@ -1,0 +1,19 @@
+# GIMP gimp-pencil-tool options
+
+(foreground (color-rgb 0.80784320831298828 0.7450980544090271 0.62352943420410156))
+(background (color-rgb 0 0 0))
+(brush "2. Hardness 100")
+(dynamics "Dynamics Off")
+(gradient "FG to BG (HSV clockwise hue)")
+(palette "Color History")
+(brush-size 76)
+(brush-hardness 0.88)
+(brush-force 0.28000000000000003)
+(dynamics-expanded yes)
+(fade-length 283)
+(fade-repeat sawtooth)
+(fade-unit percent)
+(gradient-reverse yes)
+(gradient-blend-color-space rgb-linear)
+
+# end of gimp-pencil-tool options

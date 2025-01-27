@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="#0099cc" name="theme-color">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+  
+    <link href="../assets/css/style.css" rel="stylesheet">
+  
+  <link href="../favicon.ico" rel="icon">
+  
+  
+</head>
+
+  
+  <body>
+    <section class="navbar">
+  <div class="navbar-container" role="navigation">
+    <div>
+      <ul>
+        
+        <li><a class="active" href="index.html">Documentation</a></li>
+        <li><a href="https://github.com/khalim19/gimp-plugin-export-layers">View on GitHub</a></li>
+      </ul>
+    </div>
+    <div class="right">
+      <ul class="right">
+        
+        
+          <li>
+            <a href="Usage.html">Usage »</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</section>
+
+    
+    <section class="main-content">
+      <h1>Installation</h1>
+      
+      <ul id="markdown-toc">
+  <li><a href="#requirements" id="markdown-toc-requirements">Requirements</a></li>
+  <li><a href="#windows" id="markdown-toc-windows">Windows</a>    <ul>
+      <li><a href="#installer" id="markdown-toc-installer">Installer</a></li>
+      <li><a href="#manual-installation-zip-package" id="markdown-toc-manual-installation-zip-package">Manual installation (ZIP package)</a></li>
+    </ul>
+  </li>
+  <li><a href="#linux" id="markdown-toc-linux">Linux</a></li>
+  <li><a href="#macos" id="markdown-toc-macos">macOS</a></li>
+  <li><a href="#upgrading-to-33-" id="markdown-toc-upgrading-to-33-">Upgrading to 3.3 <a name="Upgrading-from-Earlier-Versions"></a></a></li>
+</ul>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>GIMP 2.8 or later</li>
+  <li>Python 2.7 or later from the 2.7.x series</li>
+</ul>
+
+<h2 id="windows">Windows</h2>
+
+<h3 id="installer">Installer</h3>
+
+<p>Simply run the Windows installer and customize plug-in installation path as needed.
+If you have a portable GIMP installation, you will be prompted to specify the path to GIMP and GIMP plug-ins manually.</p>
+
+<h3 id="manual-installation-zip-package">Manual installation (ZIP package)</h3>
+
+<p>Make sure you have GIMP installed with support for Python scripting.</p>
+
+<p>Copy the following files and folders:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export_layers.py
+export_layers
+</code></pre></div></div>
+
+<p>to the folder containing plug-ins depending on your version of GIMP, usually one of the following:</p>
+
+<ul>
+  <li>GIMP 2.8: <code class="highlighter-rouge">C:\Users\[your username]\.gimp-2.8\plug-ins</code></li>
+  <li>GIMP 2.10: <code class="highlighter-rouge">C:\Users\[your username]\AppData\Roaming\GIMP\2.10\plug-ins</code></li>
+</ul>
+
+<p>If you can’t locate the folder, open GIMP, go to “Edit → Preferences → Folders → Plug-Ins” and use one of the listed folders.</p>
+
+<h2 id="linux">Linux</h2>
+
+<p>Copy the following files and folders:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export_layers.py
+export_layers
+</code></pre></div></div>
+
+<p>to the folder containing plug-ins depending on your version of GIMP, usually one of the following:</p>
+
+<ul>
+  <li>GIMP 2.8: <code class="highlighter-rouge">/home/[your username]/.gimp-2.8/plug-ins</code></li>
+  <li>GIMP 2.10: <code class="highlighter-rouge">/home/[your username]/.config/GIMP/2.10/plug-ins</code></li>
+</ul>
+
+<p>If you can’t locate the folder, open GIMP, go to “Edit → Preferences → Folders → Plug-Ins” and use one of the listed folders.</p>
+
+<p>To check if the correct version of Python is installed, start GIMP and go to “Filters → Python-Fu → Console”.
+The console must display “Python 2.7” or later from the 2.7.x series.
+If not, install Python 2.7, open <code class="highlighter-rouge">/usr/lib/gimp/2.0/interpreters/pygimp.interp</code> and change its contents to the following:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python=[path to Python 2.7 executable]
+/usr/bin/python=[path to Python 2.7 executable]
+:Python:E::py::python:
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">[path to Python 2.7 executable]</code> is usually <code class="highlighter-rouge">/usr/bin/python</code> or <code class="highlighter-rouge">/usr/bin/python2.7</code>.</p>
+
+<h2 id="macos">macOS</h2>
+
+<p>Copy the following files and folders:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export_layers.py
+export_layers
+</code></pre></div></div>
+
+<p>to the folder containing plug-ins depending on your version of GIMP, usually one of the following:</p>
+
+<ul>
+  <li>GIMP 2.8: <code class="highlighter-rouge">/Users/[your username]/Library/Application Support/GIMP/2.8/plug-ins</code></li>
+  <li>GIMP 2.10: <code class="highlighter-rouge">/Users/[your username]/Library/Application Support/GIMP/2.10/plug-ins</code></li>
+</ul>
+
+<p>If you can’t locate the folder, open GIMP, go to “Edit → Preferences → Folders → Plug-Ins” and use one of the listed folders.</p>
+
+<h2 id="upgrading-to-33-">Upgrading to 3.3 <a name="Upgrading-from-Earlier-Versions"></a></h2>
+
+<p>Due to significant changes in version 3.3, make sure you first perform complete reinstall when upgrading from an earlier version:</p>
+
+<ol>
+  <li>Still using the old version, run Export Layers, select “Settings → Show More Settings”, check “Remove procedures and constraints” and reset settings by pressing the “Reset Settings” button.</li>
+  <li>Close Export Layers.</li>
+  <li>Close GIMP.</li>
+  <li>Remove the <code class="highlighter-rouge">export_layers.py</code> file and the <code class="highlighter-rouge">export_layers</code> folder from the installation folder.
+If you used 3.0-RC1, remove the <code class="highlighter-rouge">pygimplib</code> folder as well.</li>
+  <li>In the folder above <code class="highlighter-rouge">plug-ins</code>, open <code class="highlighter-rouge">parasiterc</code> in a text editor and remove the entire line beginning with <code class="highlighter-rouge">(parasite "plug_in_export_layers"</code>.</li>
+  <li>Run GIMP without Export Layers installed (so that GIMP “forgets” about the plug-in).</li>
+  <li>Install the new version.</li>
+</ol>
+
+<p>You can still upgrade to the newest version if you did not perform steps 5 and 6.
+A warning dialog will ask you to reset the settings.
+However, calling <code class="highlighter-rouge">pdb.plug_in_export_layers</code> from the command line will probably result in an execution error due to the mismatch of arguments.</p>
+
+    </section>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+# GIMP gimp-rect-select-tool options
+
+(aspect-denominator 9)
+(aspect-numerator 16)
+(fixed-rule-active yes)
+(overridden-fixed-aspect yes)
+(corner-radius 9.4000000000000004)
+
+# end of gimp-rect-select-tool options

@@ -1,0 +1,11 @@
+# GIMP gimp-text-tool options
+
+(foreground (color-rgb 0.80784320831298828 0.7450980544090271 0.62352943420410156))
+(palette "Color History")
+(font "Cantarell")
+(font-size 49)
+(hint-style none)
+(indent -1)
+(line-spacing -16.300000000000001)
+
+# end of gimp-text-tool options

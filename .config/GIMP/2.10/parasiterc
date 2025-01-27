@@ -1,0 +1,10 @@
+# GIMP parasiterc
+# 
+# This file will be entirely rewritten each time you exit.
+
+(parasite "seq-file-type" 1 1 "\63")
+
+(parasite "plug_in_export_layers" 1 185 "ccollections\12OrderedDict\12p\61\12\50\50lp\62\12\50lp\63\12Vmain\57plugin\137version\12p\64\12aV\63\56\63\56\61\12p\65\12aa\50lp\66\12Vmain\57available\137tags\12p\67\12a\50dp\70\12Vforeground\12p\71\12VForeground\12p\61\60\12sVbackground\12p\61\61\12VBackground\12p\61\62\12saatRp\61\63\12\56")
+
+
+# end of parasiterc

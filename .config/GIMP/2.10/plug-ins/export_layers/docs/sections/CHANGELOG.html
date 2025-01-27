@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="#0099cc" name="theme-color">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+  
+    <link href="../assets/css/style.css" rel="stylesheet">
+  
+  <link href="../favicon.ico" rel="icon">
+  
+  
+</head>
+
+  
+  <body>
+    <section class="navbar">
+  <div class="navbar-container" role="navigation">
+    <div>
+      <ul>
+        
+        <li><a class="active" href="index.html">Documentation</a></li>
+        <li><a href="https://github.com/khalim19/gimp-plugin-export-layers">View on GitHub</a></li>
+      </ul>
+    </div>
+    <div class="right">
+      <ul class="right">
+        
+        
+      </ul>
+    </div>
+  </div>
+</section>
+
+    
+    <section class="main-content">
+      <h1>Release Notes</h1>
+      
+      <h1 id="331">3.3.1</h1>
+
+<p>Changes to the filename pattern entry:</p>
+<ul>
+  <li>Reworked tooltips for each field, now containing usage, details and some examples.</li>
+  <li>Explicitly specified tags are no longer sorted alphabetically.</li>
+  <li>Changed the default separator and wrapper for the <code class="highlighter-rouge">Tags</code> field.</li>
+  <li>Modified several arguments to use the <code class="highlighter-rouge">%</code> notation for brevity and consistency.</li>
+  <li>Added a field to specify several layer or image attributes - layer width, height, <em>x</em>- and <em>y</em>-offsets and image width and height.</li>
+  <li>Added an option to the number field (such as <code class="highlighter-rouge">[001]</code>) to disable resetting numbering across layer groups.</li>
+</ul>
+
+<p>Misc. changes:</p>
+<ul>
+  <li>From version 3.3 onward, obsolete settings, procedures or constraints are automatically replaced when first starting the plug-in with a newer version.</li>
+</ul>
+
+<h1 id="33">3.3</h1>
+
+<ul>
+  <li><strong>Due to significant changes in 3.3, make sure to perform a <a href="https://khalim19.github.io/gimp-plugin-export-layers/sections/Installation.html#Upgrading-from-Earlier-Versions">clean reinstall</a>.</strong> The plug-in can still function without performing a clean reinstall (a warning dialog will ask you to clear settings), but will likely not be usable from the command line.</li>
+  <li>Removed installers for Linux and macOS. The installers were not flexible enough to handle the diversity of available GIMP installers and different installation directories. The manual package is simple enough to install anyway (in some cases, simpler than the installers).</li>
+  <li>Added the ability to add any PDB procedures to apply to all layers before export (blur, scale, drop shadows, …). The argument values of any procedure can be adjusted by clicking the edit button.</li>
+  <li>“Operations” are now referred to as “procedures”.</li>
+  <li>Allowed adding the same procedure or constraint multiple times.</li>
+  <li>Allowed editing the name of procedures and constraints.</li>
+  <li>Procedures or constraints are now enabled when added.</li>
+  <li>Removed “Use image size”. Added “Use layer size” having the opposite meaning to the list of custom procedures. This procedure is enabled by default.</li>
+  <li>Removed “Treat layer groups as folders”. The folder structure is now preserved by default and can be disabled by adding the new “Ignore folder structure” procedure.</li>
+  <li>Moved “Only visible layers” to the list of constraints (still disabled by default).</li>
+  <li>“Include layers” is now always displayed by default for clarity.</li>
+  <li>Flattened menu items for built-in constraints for improved discoverability.</li>
+  <li>“Only layers with tags” and “Only layers without tags” now optionally allow including/excluding only specific tags.</li>
+  <li>“Insert background layers” and “Insert foreground layers” now allow modifying which tag represents back- and foreground layers, respectively.</li>
+  <li>The preview is now displayed always, i.e. even if “Show More Settings” is unchecked. This helps users visualize the export even with the basic setup.</li>
+  <li>Upon starting the plug-in, the image preview defaults to the active layer if there is no selection in the layer name preview.</li>
+  <li>The image preview will be set to manual update if the update takes too long (currently set to 1 second). The automatic update can be turned on/off using the menu entry available above the image preview.</li>
+  <li>Name preview: Renamed “Add tag…” to “Add New Tag…”. Creating a new tag now automatically applies that tag to all the currently selected layers.</li>
+  <li>Improved handling of long or multi-line in-dialog messages.</li>
+  <li>Restored auto-hiding of in-dialog messages and delayed preview updates (the latter saving performance).</li>
+  <li>Cleaned up arguments for <code class="highlighter-rouge">pdb.gimp_plugin_export_layers</code> due to the removal of the three settings visible in the “basic” GUI.</li>
+  <li>Performed small adjustments in layout and spacing in the GUI.</li>
+  <li>Changed mnemonics of GUI elements to avoid clashes with mnemonics for GTK widgets (such as folder chooser).</li>
+  <li>Removed the redundant <code class="highlighter-rouge">Home</code> page from the documentation for the ZIP package.</li>
+  <li>Errors are now logged as early as possible. If the plug-in is not fully initialized yet, the errors are logged into the <code class="highlighter-rouge">export_layers/error.log</code> file.</li>
+  <li>Fixed image preview leaving artifacts when downsizing the image (by dragging panes).</li>
+  <li>Fixed the main dialog displaying visually jarring white background for a short moment while initializing.</li>
+  <li>Fixed a rare crash in the image preview for nested empty layer groups.</li>
+</ul>
+
+<h1 id="321">3.2.1</h1>
+
+<ul>
+  <li>Added installers for Linux and macOS.</li>
+  <li>Pressing the Help button now opens the Documentation subpage rather than the main page of the plug-in.</li>
+  <li>Fixed updates to previews not working and info/error messages not disappearing automatically for GIMP 2.10 on Windows.</li>
+  <li>Fixed GIMP version checks causing incorrect behavior of progress bars and preventing displaying several file extensions available on certain GIMP versions.</li>
+</ul>
+
+<h1 id="32">3.2</h1>
+
+<ul>
+  <li>Added a simple installer for Windows.</li>
+  <li>Plug-in dialog now properly inherits the theme set in GIMP 2.10.</li>
+  <li>Updated the list of file formats and extensions for GIMP 2.10.</li>
+  <li>Error messages no longer disappear automatically after a while.</li>
+  <li>Added a small amount of padding in the bottom part of the plug-in dialog.</li>
+  <li>Fixed plug-in failing to load for GIMP 2.10 on Windows.</li>
+  <li>Fixed a crash when running the plug-in after an upgrade from an early version (up to 3.0-RC1).</li>
+  <li>Several minor updates to documentation.</li>
+</ul>
+
+<h1 id="31">3.1</h1>
+
+<ul>
+  <li>Created a single release package for GIMP 2.8, 2.9 and 2.10.</li>
+  <li>Further decreased width of the file extension entry and filename pattern entry.</li>
+  <li>Properly fixed enabled/disabled state of previews.</li>
+</ul>
+
+<h1 id="30">3.0</h1>
+
+<ul>
+  <li>Created a separate release for GIMP 2.9.
+This release does not contain the smaller progress bar (displayed while exporting) due to the plug-in dialog freezing during the export.</li>
+  <li>Tagged layer groups can now be inserted, even if “Include layer groups” constraint is disabled.</li>
+  <li>Made “[layer path]” and “[tags]” fields for the filename pattern entry more flexible.</li>
+  <li>If a field for the filename pattern entry has several variations for its arguments, the tooltip displays each variation on a separate line.</li>
+  <li>File extension entry is now expandable.</li>
+  <li>Decreased width of the file extension and filename pattern entries.</li>
+  <li>Moved <code class="highlighter-rouge">pygimplib</code> folder back under <code class="highlighter-rouge">export_layers</code>.</li>
+  <li>Fixed incorrect positioning of layers in the image previews.</li>
+  <li>Fixed incorrect layer name in the image preview when a layer is first displayed there.</li>
+  <li>Fixed Reset Settings not working for settings persisting during a GIMP session.</li>
+  <li>Fixed enabled/disabled state of previews.</li>
+  <li>Fixed extra period in export failure messages.</li>
+</ul>
+
+<h1 id="30-rc2">3.0-RC2</h1>
+
+<ul>
+  <li>Renamed “filters” to “constraints” to avoid confusion with the concept of image filters.</li>
+  <li>Adding a previously enabled and subsequently removed operation or constraint will now be disabled when added back again.</li>
+  <li>Moved <code class="highlighter-rouge">pygimplib</code> folder above the <code class="highlighter-rouge">export_layers</code> folder.</li>
+  <li>Changed user documentation to HTML (more-or-less a copy of the plug-in page).</li>
+  <li>Fixed operations being ignored for “Export Layers (repeat)”.</li>
+  <li>Fixed dialog position resetting after closing the file format dialog.</li>
+  <li>Fixed tagged layers (notably foreground and background) not working for indexed images.</li>
+  <li>Added French, Russian and Ukrainian translations.</li>
+</ul>
+
+<h1 id="30-rc1">3.0-RC1</h1>
+
+<p>Redesign of the basic user interface:</p>
+<ul>
+  <li>“Advanced settings” are now referred to as “more settings”.</li>
+  <li>Merged the “Save Settings” and “Reset Settings” buttons and the “Advanced Settings” expander into one button named “Settings”.</li>
+  <li>Renamed “Export Layers” button to just “Export”.</li>
+  <li>Removed “Autocrop layers” from basic settings.</li>
+  <li>Added a second progress bar indicating the export progress of the current layer.</li>
+  <li>Misc. adjustments of GUI elements (size and spacing).</li>
+</ul>
+
+<p>Major additions and redesign of the “advanced” user interface:</p>
+<ul>
+  <li>Added option to rename layers according to a pattern (default: layer name).</li>
+  <li>Removed GUI elements for “advanced” settings.</li>
+  <li>Added option to add back the “advanced” settings as operations and filters via “Add Operation…” and “Add Filter…” boxes, respectively.</li>
+  <li>Added preview displaying layer names to be exported.</li>
+  <li>Added image preview of the layer selected in the layer name preview.</li>
+  <li>Removed the option to tag layers by renaming layers.
+Instead, layers can now be tagged via the layer name preview.</li>
+  <li>Added the option to add arbitrary tags to layers in the layer name preview.</li>
+</ul>
+
+<p>Changes to settings:</p>
+<ul>
+  <li>Renamed “Ignore invisible layers” to “Only visible layers”.</li>
+  <li>Added the following settings acting as additional operations before export:
+    <ul>
+      <li>“Insert background layers”</li>
+      <li>“Insert foreground layers”</li>
+      <li>“Inherit transparency from layer groups”</li>
+      <li>“Ignore layer modes”</li>
+      <li>“Autocrop”</li>
+      <li>“Autocrop background”</li>
+      <li>“Autocrop foreground”</li>
+      <li>“Use file extensions in layer names”</li>
+    </ul>
+  </li>
+  <li>Added the following settings acting as additional filters of layers:
+    <ul>
+      <li>“Include layers” (enabled by default)</li>
+      <li>“Include layer groups”</li>
+      <li>“Include empty layer groups”</li>
+      <li>“Only layers with tags”</li>
+      <li>“Only layers without tags”</li>
+      <li>“Only top-level layers”</li>
+      <li>“Only layers selected in preview”</li>
+    </ul>
+  </li>
+  <li>Removed settings not in the lists above as the same functionality can be achieved via additional operations and filters or the filename pattern text entry.</li>
+</ul>
+
+<p>Bug fixes:</p>
+<ul>
+  <li>Fixed crash when “Search” or “Recently Used” were selected in the folder chooser.</li>
+  <li>Fixed in-dialog messages with special characters not being displayed.</li>
+  <li>Fixed “Export Layers (Repeat)” terminating prematurely if the user closed the overwrite dialog during a previous export.</li>
+</ul>
+
+<p>Misc. changes:</p>
+<ul>
+  <li>Reduced the number of PDB parameters for “plug-in-export-layers” as a result of the replacement of advanced settings with operations and filters.</li>
+  <li>Export can now be stopped by pressing Escape.</li>
+  <li>Export is now stopped if the image is closed during the export.</li>
+  <li>Tagged layer groups are now also considered by settings dealing with tags.</li>
+  <li>Added undo/redo capability to the file extension entry.</li>
+  <li>JPEG dialog is no longer displayed in “Export Layers (Repeat)”.</li>
+  <li>In-dialog informative messages (e.g. “Settings successfully saved”) now disappear automatically after a while.</li>
+</ul>
+
+<h1 id="25">2.5</h1>
+
+<ul>
+  <li>Added a feature to tag layers as foreground layers.
+To use it, type “[foreground]” before the layer name.</li>
+  <li>Changed the way background layers are specified.
+Instead of enclosing the layer name in square brackets, type “[background]” before the layer name.
+If you used background layers, make sure to change the layer names.</li>
+  <li>Changed the setting “Layer names in [square brackets]” to “[Tagged] layers” and several other setting values to reflect the addition of foreground layers.</li>
+  <li>The main dialog now hides again when a file format dialog is about to be displayed, in order to make sure that the file format dialog is not displayed behind the main dialog.
+The main dialog reappears after the file format dialog is closed by the user.</li>
+  <li>Consolidated error and warning messages displayed when an error during export or an unhandled exception occurred.</li>
+  <li>The plug-in no longer crashes when it doesn’t need to for certain errors during export, such as too long filenames.</li>
+  <li>The output directory and input directories of imported images are no longer validated.
+If the output directory is invalid, a warning message is displayed and the user can try exporting again.
+This also avoids needless crashes.</li>
+  <li>The plug-in no longer remembers settings in the non-interactive run mode.
+This behavior is consistent with other GIMP plug-ins.</li>
+  <li>“Export only layers matching file extension” is now applied before tagged layers are processed.
+This means that when this setting is selected and back/foreground layers don’t have a matching file extension, they will no longer form the back/foreground of the exported layer.</li>
+</ul>
+
+<h1 id="24">2.4</h1>
+
+<ul>
+  <li>The “File extension” text field now displays a dropdown list of file formats and associated file extensions (upon clicking or pressing Up/Down keys).
+Several third-party formats are also listed, provided that the corresponding plug-ins are installed.
+You can still enter a file extension not in the dropdown list in case you use a different file format plug-in.</li>
+  <li>Renamed “Export Layers to” to “Export Layers (repeat)”.</li>
+  <li>Added mnemonics (keyboard shortcuts) to the dialog in “Export Layers (repeat)” and to the overwrite confirmation dialog.</li>
+  <li>Fixed crash for input images located in folders that contain accented characters.</li>
+  <li>Fixed export of layers with file extensions containing periods (e.g. “xcf.bz2”) if files with the same name already exist in the chosen output folder.</li>
+  <li>If “Use as file extensions” is selected and layers contain multiple extensions for the same file format (e.g. “jpeg”, “jpg” or “jpe” for the JPEG format), the file format dialog is now displayed only once.</li>
+  <li>If a layer name is enclosed with multiple pairs of square brackets, only the outermost pair is removed upon the export (e.g. a layer named “[[Background]]” is exported as “[Background].png”).</li>
+  <li>Removed “ copy” suffix from the names of exported layers for formats preserving layer information (e.g. PSD or XCF).</li>
+  <li>On Ubuntu, replaced the overlay scrollbar with the classic scrollbar.</li>
+</ul>
+
+<h1 id="23">2.3</h1>
+
+<ul>
+  <li>Removed tooltips for settings (except File Extension) due to being redundant.</li>
+  <li>Allowed to type in the output directory manually in the directory chooser if the “Location:” label is visible.</li>
+  <li>Changed the default value of the file extension strip mode to “Always strip file extension”.</li>
+  <li>Changed the persistent storage of settings from a custom JSON file to the GIMP’s native “parasiterc” file.
+This improves compatibility for certain GIMP builds not bundling some less commonly used Python modules.
+Users need to re-save settings if they used the “Save Settings” feature.</li>
+  <li>The plug-in now logs unhandled errors (exceptions) to the <code class="highlighter-rouge">export_layers/export_layers_error.log</code> file for official releases.</li>
+  <li>Major refactoring of the code dealing with settings to make it easier to create and maintain them.</li>
+</ul>
+
+<h1 id="222">2.2.2</h1>
+
+<ul>
+  <li>Set PNG as the default file format.</li>
+  <li>Renamed settings containing the word “directory” to contain “folder”.</li>
+  <li>Allowed to install the plug-in system-wide (e.g. to <code class="highlighter-rouge">C:\Program Files\GIMP 2\lib\gimp\2.0\plug-ins</code> on Windows).</li>
+  <li>Pressing Enter while the focus is on the “File extension” text field will now export layers.</li>
+</ul>
+
+<h1 id="221">2.2.1</h1>
+
+<ul>
+  <li>Images in RAW format are saved with ‘.data’ file extension instead of ‘.raw’.</li>
+  <li>Image type is now preserved, instead of always using the RGB type.
+E.g. if the image is indexed, the exported layers will be indexed as well.
+File formats that don’t support the an image type (such as indexed) will automatically convert the type as appropriate (the same way the Export menu does).</li>
+  <li>Renamed “Use image size instead of layer size” to just “Use image size” for the sake of brevity.</li>
+</ul>
+
+<h1 id="22">2.2</h1>
+
+<ul>
+  <li>Changed how the initial output directory in the GUI is determined.
+It is now remembered separately for each image currently opened in GIMP.</li>
+  <li>Added support for plug-in internationalization and localization.
+It is now possible to create translations of the plug-in (see the “Readme for Translators.txt” file in the package).</li>
+  <li>Allowed again the following special characters in filenames: ~!@`#$%=+{}[]
+    <ul>
+      <li>They can appear even on Windows (which seems to be the most restrictive of the popular OSs as far as invalid characters go).
+The exceptions are ‘[’ at the beginning and ‘]’ at the end of the layer names, which are still removed, since they have a special meaning in the plug-in.</li>
+    </ul>
+  </li>
+  <li>When “No special handling” is selected, file extension strip mode will no longer default to “Strip identical file extension” (because the setting was always overwritten by its default value and thus did not remember the last used value).</li>
+  <li>Misc. code refactoring and cleanup.</li>
+</ul>
+
+<h1 id="21">2.1</h1>
+
+<ul>
+  <li>Added support for Unicode characters.
+This means you can now use any character in layer names and the output directory, except for most of the special characters.</li>
+  <li>Export Layers GUI: Removed the small dialog.
+The progress bar and the Stop button are now displayed directly in the main dialog.</li>
+  <li>Renamed “File format” to “File extension” since that’s what the user actually specifies.
+Also, renamed a bunch of options so that they contain “extension” instead of “format”.
+Because of this, if you use “Save settings”, you’ll need to re-save them.</li>
+  <li>Removed “Remove squared brackets” setting as it served little purpose.
+[square brackets] will now always be removed from layer names.</li>
+  <li>Added “Ignore layer mode” setting, which sets the layer mode to Normal for each layer.</li>
+  <li>When “No special handling” is selected, file extension strip mode now defaults to “Strip identical file extension”.</li>
+  <li>More special characters are now removed from layer names.</li>
+  <li>Removed unnecessary files from the package.</li>
+  <li>Fixed a bug that caused the file format dialog to not appear if the user chose Skip in the overwrite dialog for the first file (or the first and subsequent files).</li>
+  <li>Fixed filenames and directory names not being made unique properly, hopefully for real this time.</li>
+  <li>More code refactoring and cleanup.</li>
+</ul>
+
+<h1 id="20">2.0</h1>
+
+<p>Implemented advanced settings, including the following:</p>
+<ul>
+  <li>export only layers whose names match the file format</li>
+  <li>use file extensions in layer names as file formats</li>
+  <li>use layers with names in [square brackets] as a background for all other layers</li>
+  <li>merge each top-level layer group into one layer</li>
+  <li>permanently save settings in the Export Layers window to a file</li>
+</ul>
+
+<p>Major code rewrite.</p>
+<ul>
+  <li>Split the file into several separate modules.
+Written unit tests for most of these modules.</li>
+  <li>Implemented API for plug-in settings for easier management.</li>
+  <li>Implemented layer filtering, making it relatively easy to filter out layers according to their attributes, such as visibility (including its parents), name, and more.</li>
+  <li>Misc. code refactoring and cleanup.</li>
+</ul>
+
+<p>Changes to the GUI:</p>
+<ul>
+  <li>Added advanced settings, collapsed by default.</li>
+  <li>The main window now hides when the Export Layers button is clicked.
+Instead, a small dialog with a progress bar and a Stop button is displayed.
+This is to avoid the file format dialog being completely hidden by the main dialog.
+The Stop button allows the user to stop the export prematurely.</li>
+  <li>Progress bar now updates after each successfully exported (or skipped) layer.</li>
+  <li>Added a simple dialog to the Export Layers To menu entry, identical to the small dialog in Export Layers when exporting.</li>
+  <li>Overwrite dialog now hides immediately after choosing an option.</li>
+  <li>The order of the “Export Layers” and “Cancel” buttons is now the same as in the Export menu.</li>
+  <li>Renamed “Choose output directory” to “Save in folder:” to be consistent with the Export menu.</li>
+  <li>In the overwrite dialog, renamed “Overwrite” to “Replace” to be consistent with the Export menu.</li>
+  <li>Swapped the order of the “Skip” and “Replace” buttons in the overwrite dialog.</li>
+  <li>Upon opening the main window, the focus is now set on the File Format field.</li>
+  <li>Error messages are now in bold text.
+Removed the icon next to the error message as it didn’t look good and didn’t serve much purpose.</li>
+  <li>Added tooltips to most of the settings.</li>
+  <li>Added mnemonics (keyboard shortcuts) to the following components in the dialog (use Alt + the key after the underscore to activate the component, e.g. Alt+E for the “Export Layers” button):
+    <ul>
+      <li>_Export Layers</li>
+      <li>_Cancel</li>
+      <li>_Advanced Settings</li>
+    </ul>
+  </li>
+  <li>If the plug-in encounters an unexpected error, an error dialog (with details) is displayed.</li>
+  <li>Adjusted spacing, padding and border width of components.</li>
+</ul>
+
+<p>Bug fixes:</p>
+<ul>
+  <li>Fixed JPG export of invisible layers.</li>
+  <li>Fixed OpenRaster (.ora) export. No idea how it got fixed, though. Most likely it’s the same issue as JPG.</li>
+  <li>Fixed a bug that prevented the user from exporting layers to a root directory on Windows (e.g. “C:").</li>
+  <li>Layer names can no longer have characters “:” or “", which could cause problems on Windows.
+These will now only be allowed in directory names.</li>
+  <li>If “Treat layer groups as directories” setting is enabled and if the names of layers and layer groups have the same name after removing characters not allowed in filenames or directory names, they are now made unique properly.</li>
+</ul>
+
+<p>Misc. changes:</p>
+<ul>
+  <li>Layers exported with the “raw” file format will now have the “.raw” file extension added.</li>
+</ul>
+
+<h1 id="11">1.1</h1>
+
+<p>Release date: September 08, 2013</p>
+
+<ul>
+  <li>Added “Export Layers to” menu entry, repeating the export with last used settings.</li>
+</ul>
+
+<h1 id="10">1.0</h1>
+
+<p>Release date: July 01, 2013</p>
+
+<ul>
+  <li>Initial release.</li>
+</ul>
+
+    </section>
+  </body>
+</html>

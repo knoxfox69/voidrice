@@ -1,0 +1,7 @@
+# GIMP gimp-fuzzy-select-tool options
+
+(select-transparent no)
+(threshold 125.2)
+(draw-mask yes)
+
+# end of gimp-fuzzy-select-tool options
