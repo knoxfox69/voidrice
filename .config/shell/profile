@@ -6,7 +6,7 @@
 # to clean up.
 
 # Adds `~/.local/bin` to $PATH
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin:~/.local/share/go/bin
 
 unsetopt PROMPT_SP
 
@@ -28,7 +28,6 @@ export TERMINAL="foot"
 export BROWSER="firefox"
 
 # ~/ Clean-up:
-export QT_QPA_PLATFORM="xcb"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
