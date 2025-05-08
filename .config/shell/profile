@@ -13,6 +13,11 @@ export PATH=/usr/lib/icecream/bin:$PATH
 export PATH=/usr/lib/ccache/bin:$PATH
 export CCACHE_PREFIX=icecc
 
+# Add dark theme
+export GTK_THEME=Adwaita:dark
+export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
+export QT_STYLE_OVERRIDE=Adwaita-Dark
+
 unsetopt PROMPT_SP
 
 # Set vagrant provider to libvirt
