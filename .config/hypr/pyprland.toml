@@ -14,7 +14,7 @@ max_size  = "1920px 100%"
 lazy	  = true
 
 [scratchpads.qalc]
-command   = "foot -a qalc-popterm -e qalc -s "autocalc 1"
+command   = "foot -a qalc-popterm -e qalc -s 'autocalc 1'"
 animation = "fromTop"
 position  = ""
 margin	  = "20%"
