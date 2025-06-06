@@ -18,11 +18,16 @@ HISTFILE=~/.cache/zsh/history
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
 
 # Basic auto/tab complete:
-autoload -U compinit
+autoload -Uz compinit
+autoload bashcompinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
+bashcompinit
 _comp_options+=(globdots)		# Include hidden files.
+
+# AWS CLI autocomplete
+complete -C '/usr/bin/aws_completer' aws
 
 # vi mode
 bindkey -v
