@@ -6,11 +6,10 @@ current_session=$XDG_CURRENT_DESKTOP
 # Define the function for setting wallpapers in Hyprland
 set_wallpaper_hyprland() {
 	dir="${HOME}/.config/hypr/Wallpapers"
-	BG="$(find "$dir" -name '*.jpg' -o -name '*.png' -o -name "*.mp4" | shuf -n1)"
-	PROGRAM="swww-daemon"
+	BG="$(find "$dir" -name '*.jpg' -o -name '*.png' -o -name "*.gif" | shuf -n1)"
 	trans_type="random"
 
-  swww img "$BG" --transition-fps 255 --transition-type $trans_type --transition-duration 1
+  swww img "$BG" --transition-fps 60 --transition-step 1 --transition-type $trans_type --transition-duration 0.5
 }
 
 # Define the function for setting wallpapers in other sessions
