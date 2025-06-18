@@ -7,9 +7,14 @@ current_session=$XDG_CURRENT_DESKTOP
 set_wallpaper_hyprland() {
 	dir="${HOME}/.config/hypr/Wallpapers"
 	BG="$(find "$dir" -name '*.jpg' -o -name '*.png' -o -name "*.gif" | shuf -n1)"
+  PROGRAM="swww-daemon"
 	trans_type="random"
 
-  swww img "$BG" --transition-fps 60 --transition-step 1 --transition-type $trans_type --transition-duration 0.5
+  if pgrep "$PROGRAM" > /dev/null; then
+    swww img "$BG" --transition-fps 60 --transition-step 1 --transition-type $trans_type --transition-duration 0.5
+  else
+    $PROGRAM && swww img "$BG" --transition-fps 60 --transition-step 1 --transition-type $trans_type --transition-duration 0.5
+  fi
 }
 
 # Define the function for setting wallpapers in other sessions
