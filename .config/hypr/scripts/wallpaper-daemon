@@ -1,0 +1,5 @@
+swww-daemon &
+while sleep 600;
+do
+  sh ${HOME}/.config/hypr/scripts/wallpaper;
+done

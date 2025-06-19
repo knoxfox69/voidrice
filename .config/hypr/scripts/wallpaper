@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Get the current desktop session
 current_session=$XDG_CURRENT_DESKTOP
 
@@ -7,14 +6,10 @@ current_session=$XDG_CURRENT_DESKTOP
 set_wallpaper_hyprland() {
 	dir="${HOME}/.config/hypr/Wallpapers"
 	BG="$(find "$dir" -name '*.jpg' -o -name '*.png' -o -name "*.gif" | shuf -n1)"
-  PROGRAM="swww-daemon"
 	trans_type="random"
 
-  if pgrep "$PROGRAM" > /dev/null; then
-    swww img "$BG" --transition-fps 60 --transition-step 1 --transition-type $trans_type --transition-duration 0.5
-  else
-    $PROGRAM && swww img "$BG" --transition-fps 60 --transition-step 1 --transition-type $trans_type --transition-duration 0.5
-  fi
+  echo "Running, wallpaper will be ${BG}"
+  swww img "$BG" --transition-fps 100 --transition-step 1 --transition-type $trans_type --transition-duration 1
 }
 
 # Define the function for setting wallpapers in other sessions
@@ -28,15 +23,9 @@ set_wallpaper_other() {
 # Check the current session and run the appropriate function
 case "$current_session" in
 "Hyprland")
-	set_wallpaper_hyprland
-	;;
+  set_wallpaper_hyprland
+  ;;
 *)
-	set_wallpaper_other
-	;;
+  set_wallpaper_other
+  ;;
 esac
-
-# Sleep for 10 minutes before calling the script again
-sleep 10m
-
-# Call the script again to set wallpaper
-exec "$0"
