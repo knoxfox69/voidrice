@@ -1,0 +1,27 @@
+#!/bin/bash
+
+GDK_BACKEND=x11 /usr/bin/workspacesclient-wrapper "$@" &
+WS_PID=$!
+
+# Wait for DCV overlay to appear
+echo "Waiting for Dcvclientbin window..."
+while ! hyprctl clients | grep -q "class: Dcvclientbin"; do
+    if ! kill -0 "$WS_PID" 2>/dev/null; then
+      exit 0
+    fi
+    sleep 2
+done
+
+echo "DCV overlay detected — hiding Workspacesclient..."
+# Toggle scratchpad to hide the main window
+pypr toggle workspaces
+
+# Sleep while overlay exists (low CPU)
+while hyprctl clients | grep -q "class: Dcvclientbin"; do
+    sleep 5
+done
+
+echo "DCV overlay disappeared — restoring Workspacesclient..."
+# Toggle scratchpad again to show the main window
+kill -9 $WS_PID
+exit 0

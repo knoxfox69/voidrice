@@ -22,3 +22,14 @@ class	  = "qalc-popterm"
 size	  = "40% 60%"
 max_size  = "1920px 100%"
 lazy	  = true
+
+[scratchpads.workspaces]
+command   = ""   # no command needed, window already exists
+animation = "fromTop"
+position  = ""
+margin    = "0%"
+class     = "Workspacesclient"
+size      = "100% 100%"
+max_size  = "1920px 1080px"
+lazy      = true
+
