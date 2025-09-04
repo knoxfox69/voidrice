@@ -14,7 +14,8 @@ done
 
 echo "DCV overlay detected — hiding Workspacesclient..."
 # Toggle scratchpad to hide the main window
-pypr toggle workspaces
+sleep 2
+pypr hide workspaces
 
 # Sleep while overlay exists (low CPU)
 while hyprctl clients | grep -q "class: Dcvclientbin"; do
