@@ -14,7 +14,7 @@ done
 
 echo "DCV overlay detected — hiding Workspacesclient..."
 # Toggle scratchpad to hide the main window
-sleep 2
+sleep 5
 pypr hide workspaces
 
 # Sleep while overlay exists (low CPU)
