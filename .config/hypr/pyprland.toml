@@ -29,7 +29,8 @@ animation = "fromTop"
 position  = ""
 margin    = "0%"
 class     = "Workspacesclient"
+match     = "initialClass"
 size      = "100% 100%"
 max_size  = "1920px 1080px"
-lazy      = true
+lazy      = false
 
