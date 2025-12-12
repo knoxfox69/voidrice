@@ -1,0 +1,13 @@
+hash -d cac=/home/knox/.cache 
+hash -d cf=/home/knox/.config 
+hash -d D=/home/knox/Downloads 
+hash -d d=/home/knox/Documents 
+hash -d dt=/home/knox/.local/share 
+hash -d rr=/home/knox/.local/src 
+hash -d h=/home/knox 
+hash -d m=/home/knox/Music 
+hash -d mn=/mnt 
+hash -d pp=/home/knox/Pictures 
+hash -d sc=/home/knox/.local/bin 
+hash -d src=/home/knox/.local/src 
+hash -d vv=/home/knox/Videos 
