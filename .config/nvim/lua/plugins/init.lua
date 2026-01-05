@@ -71,6 +71,22 @@ local plugins = {
       require("gitsigns").setup()
     end,
   },
+
+  -- VimTex (automatic latex compilation)
+  {
+  "lervag/vimtex",
+  lazy = false, -- LaTeX waits for no one
+  init = function()
+    vim.g.vimtex_view_method = "zathura"
+    vim.g.vimtex_compiler_method = "latexmk"
+    vim.g.vimtex_compiler_latexmk = {
+      continuous = 1,
+      callback = 1,
+    }
+    vim.g.vimtex_compiler_autostart = 1
+
+  end,
+  },
 }
 
 require("lazy").setup(plugins, require "lazy_config")
