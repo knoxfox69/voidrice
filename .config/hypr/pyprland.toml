@@ -6,22 +6,19 @@ plugins = [
 [scratchpads.term]
 command   = "foot -a foot-popterm"
 animation = "fromTop"
-position  = ""
-margin	  = "20%"
-class	  = "foot-popterm"
-size	  = "60% 60%"
+size      = "60% 60%"
+position  = "20% 20%"
 max_size  = "1920px 100%"
-lazy	  = true
+lazy      = true
 
 [scratchpads.qalc]
 command   = "foot -a qalc-popterm -e qalc -s 'autocalc 1'"
 animation = "fromTop"
-position  = ""
 margin	  = "20%"
-class	  = "qalc-popterm"
-size	  = "40% 60%"
+size      = "40% 60%"
+position  = "30% 20%"
 max_size  = "1920px 100%"
-lazy	  = true
+lazy      = true
 
 [scratchpads.workspaces]
 command   = ""   # no command needed, window already exists
