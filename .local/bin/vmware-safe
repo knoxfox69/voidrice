@@ -1,0 +1,25 @@
+ # vmware-safe: Launch VMware safely under Wayland/Xwayland
+
+# Save current XKB options
+
+CURRENT_XKB=$(setxkbmap -query | grep options | awk '{print $2}')
+
+# Disable advanced XKEYBOARD options to prevent VMware crash
+
+setxkbmap -option ""
+
+# Launch VMware
+
+env GTK_USE_PORTAL=0 GDK_BACKEND=x11 vmware %U
+
+# Restore original XKB options
+
+if [ -n "$CURRENT_XKB" ]; then
+
+setxkbmap -option "$CURRENT_XKB"
+
+else
+
+setxkbmap -option ""
+
+fi 
