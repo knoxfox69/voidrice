@@ -22,11 +22,13 @@ lazy      = true
 
 [scratchpads.workspaces]
 command   = ""   # no command needed, window already exists
-animation = "fromTop"
-position  = "50% -100%"
+animation = ""
+position  = ""
+alt_toggle= "true"
 margin    = "0%"
 class     = "Workspacesclient"
 match     = "initialClass"
 size      = "100% 100%"
 max_size  = "1920px 1080px"
 lazy      = true
+unfocus   = hide
