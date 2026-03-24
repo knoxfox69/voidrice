@@ -7,7 +7,6 @@ plugins = [
 command   = "foot -a foot-popterm"
 animation = "fromTop"
 size      = "60% 60%"
-position  = "20% 20%"
 max_size  = "1920px 100%"
 lazy      = true
 
@@ -21,12 +20,12 @@ max_size  = "1920px 100%"
 lazy      = true
 
 [scratchpads.workspaces]
-command   = ""   # no command needed, window already exists
-animation = ""
-position  = ""
-alt_toggle= "true"
-margin    = 0
-class     = "Workspacesclient"
-size      = "100% 100%"
-max_size  = "1920px 1080px"
-lazy      = true
+command           = ""   # no command needed, window already exists
+animation         = "fromBottom"
+alt_toggle        = "true"
+margin            = 0
+class             = "Workspacesclient"
+size              = "100% 100%"
+max_size          = "1920px 1080px"
+lazy              = true
+pinned            = false
