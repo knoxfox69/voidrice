@@ -19,12 +19,8 @@ pypr show workspaces
 sleep 2
 pypr hide workspaces
 
-# Sleep while overlay exists (low CPU)
-while hyprctl clients | grep -q "class: Dcvclientbin"; do
-    sleep 5
-done
+# Wait until the DCV overlay window is killed...
+wait $WS_PID
 
-echo "DCV overlay disappeared — restoring Workspacesclient..."
-# Toggle scratchpad again to show the main window
-kill -9 $WS_PID
+echo "Process $WS_PID terminated.. Killing the script!
 exit 0
