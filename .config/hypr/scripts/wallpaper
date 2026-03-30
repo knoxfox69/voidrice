@@ -9,7 +9,7 @@ set_wallpaper_hyprland() {
 	trans_type="random"
 
   echo "Running, wallpaper will be ${BG}"
-  swww img "$BG" --transition-fps 100 --transition-step 1 --transition-type $trans_type --transition-duration 1
+  awww img "$BG" --transition-fps 100 --transition-step 1 --transition-type $trans_type --transition-duration 1
 }
 
 # Define the function for setting wallpapers in other sessions
