@@ -9,9 +9,9 @@
 export PATH=$PATH:~/.local/bin:~/.local/share/go/bin
 
 # Add ccache compilation
-export PATH=/usr/lib/icecream/bin:$PATH
-export PATH=/usr/lib/ccache/bin:$PATH
-export CCACHE_PREFIX=icecc
+#export PATH=/usr/lib/icecream/bin:$PATH
+#export PATH=/usr/lib/ccache/bin:$PATH
+#export CCACHE_PREFIX=icecc
 
 # Add dark theme
 export GTK_THEME=Adwaita:dark
@@ -157,3 +157,5 @@ ex=🎯:\
 "
 
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && shortcuts >/dev/null 2>&1 &
+
+. "$HOME/.local/share/../bin/env"
