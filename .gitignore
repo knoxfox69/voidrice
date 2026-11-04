@@ -1,3 +1,5 @@
 .aider*
 .config/hypr/monitor.conf
 .config/hypr/tv-disable.sh
+.config/hypr/monitor.lua
+.config/hypr/legacy/
