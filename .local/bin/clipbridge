@@ -1,0 +1,32 @@
+#!/bin/bash
+# Two-way text clipboard bridge between Wayland and XWayland (X11).
+# Needed because XWayland selection sync is unreliable on Hyprland,
+# which breaks clipboard sharing with the AWS WorkSpaces (DCV) client.
+# Requires: wl-clipboard, xclip, clipnotify
+
+DIR="${XDG_RUNTIME_DIR:-/tmp}/clipbridge"
+mkdir -p "$DIR"
+# Wayland -> X11 (invoked by wl-paste --watch, content on stdin)
+if [ "$1" = "--from-wayland" ]; then
+    cat > "$DIR/w.txt"
+    [ -s "$DIR/w.txt" ] || exit 0
+    xclip -selection clipboard -o > "$DIR/x_cur.txt" 2>/dev/null
+    cmp -s "$DIR/w.txt" "$DIR/x_cur.txt" || xclip -selection clipboard -i < "$DIR/w.txt"
+    exit 0
+fi
+
+trap 'kill 0' EXIT
+
+# Wayland -> X11 watcher
+wl-paste --type text --watch "$0" --from-wayland &
+
+# X11 -> Wayland watcher
+while clipnotify -s clipboard; do
+    sleep 0.15
+    xclip -selection clipboard -o > "$DIR/x.txt" 2>/dev/null || continue
+    [ -s "$DIR/x.txt" ] || continue
+    wl-paste --type text --no-newline > "$DIR/w_cur.txt" 2>/dev/null
+    cmp -s "$DIR/x.txt" "$DIR/w_cur.txt" || wl-copy < "$DIR/x.txt"
+done &
+
+wait
