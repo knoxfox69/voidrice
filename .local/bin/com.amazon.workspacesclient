@@ -1,26 +1,16 @@
 #!/bin/bash
 
+# Launcher (login) window stays on X11; the DCV stream viewer runs natively on
+# Wayland. Override with WORKSPACES_DCV_GDK_BACKEND=x11 to put the viewer back
+# on XWayland.
+export WORKSPACES_DCV_GDK_BACKEND="${WORKSPACES_DCV_GDK_BACKEND:-wayland}"
+
 GDK_BACKEND=x11 /usr/bin/workspacesclient-wrapper "$@" &
 WS_PID=$!
 
-# Wait for DCV overlay to appear
-echo "Waiting for Dcvclientbin window..."
-while ! hyprctl clients | grep -q "class: Dcvclientbin"; do
-    if ! kill -0 "$WS_PID" 2>/dev/null; then
-      exit 0
-    fi
-    sleep 2
-done
+# Hide the launcher window while a session is streaming, and bring it back on
+# disconnect. Exits by itself when the client does. SUPER+SHIFT+A still
+# toggles the hidden launcher manually.
+"$HOME/.local/bin/workspaces-autohide" "$WS_PID" &
 
-echo "DCV overlay detected — hiding Workspacesclient..."
-# Toggle scratchpad to hide the main window
-sleep 2
-pypr show workspaces
-sleep 2
-pypr hide workspaces
-
-# Wait until the DCV overlay window is killed...
-wait $WS_PID
-
-echo "Process $WS_PID terminated.. Killing the script!
-exit 0
+wait "$WS_PID"

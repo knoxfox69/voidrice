@@ -25,6 +25,8 @@ hl.bind("SUPER + grave", exec("pkill fuzzel || ~/.local/bin/fuzzel-emoji"))
 hl.bind("SUPER + SHIFT + Return", exec("pypr toggle term"))
 -- Pop calculator
 hl.bind("SUPER + code:48", exec("pypr toggle qalc"))
+-- Show/hide the AWS WorkSpaces launcher window (parked on a special workspace)
+hl.bind("SUPER + SHIFT + a", hl.dsp.workspace.toggle_special("wsclient"))
 
 -- Window manip
 hl.bind("SUPER + q", hl.dsp.window.close())

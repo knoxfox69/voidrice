@@ -125,6 +125,9 @@ end
 -- Fixes: Workspaces client window
 hl.window_rule({ name = "workspacesclient", match = { class = "Workspacesclient" }, pin = false, float = false })
 
+-- Fixes: AWS WorkSpaces stream window (DCV viewer): keep the screen awake, skip animations
+hl.window_rule({ name = "dcvviewer", match = { class = "^(dcvviewer|com\\.amazon\\.workspacesclient)$" }, idle_inhibit = "focus", no_anim = true })
+
 -----------------------
 ---- LAYER RULES ----
 -----------------------
