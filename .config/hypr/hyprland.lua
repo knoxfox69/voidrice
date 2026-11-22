@@ -23,6 +23,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("wlsunset -l 21.8 -L -102.2 -t 5000 -T 6500")
     hl.exec_cmd("/usr/bin/pypr")
     hl.exec_cmd("/usr/bin/easyeffects --gapplication-service")
+    hl.exec_cmd("musicpresence") -- Discord Rich Presence for music
 
     -- Status bar
     hl.exec_cmd("waybar")
