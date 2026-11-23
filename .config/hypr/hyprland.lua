@@ -110,7 +110,7 @@ hl.animation({ leaf = "workspaces", enabled = true,  speed = 4,  bezier = "defau
 -- Popping windows
 hl.window_rule({ name = "qalc-popterm", match = { class = "qalc-popterm" }, float = true, pin = true })
 hl.window_rule({ name = "foot-popterm", match = { class = "foot-popterm" }, float = true, pin = true })
-hl.window_rule({ name = "discord-float", match = { class = "^(discord|vesktop)$" }, float = true, size = "(monitor_w*0.90) (monitor_h*0.85)", move = "(monitor_w*0.05) (monitor_h*0.10)" })
+hl.window_rule({ name = "discord-float", match = { class = "^(discord|vesktop)$" }, float = true, size = "(monitor_w*0.96) (monitor_h*0.94)", move = "(monitor_w*0.02) (monitor_h*0.04)" })
 
 -- Dialogs
 for _, title in ipairs({
